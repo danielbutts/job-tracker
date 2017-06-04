@@ -1,18 +1,15 @@
 package com.userService;
 
-import com.userService.model.UserRepository;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Created by mike on 6/3/17.
- * https://spring.io/guides/gs/accessing-data-rest/
- */
-@SpringBootApplication
+
+@RestController
 public class AppController {
 
-    public static void main(String[] args) {
-        SpringApplication.run(AppController.class, args);
-    }
 
+    @GetMapping("/user")
+    public String getAllUsers() {
+        return "{ \"users\": [] }";
+    }
 }

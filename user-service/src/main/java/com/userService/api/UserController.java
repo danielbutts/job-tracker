@@ -10,30 +10,38 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Created by mike on 6/3/17.
- * http://briansjavablog.blogspot.com/2015/12/spring-boot-rest-tutorial.html
- */
 
 import com.userService.model.User;
 import com.userService.model.UserRepository;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserRepository repository;
 
-    @RequestMapping("/users")
-    public List <User> getUsers() {
-        return (List<User>) userRepository.findAll();
+    public UserController(UserRepository repository) {
+        this.repository = repository;
     }
 
-    @RequestMapping("/hello")
+    @GetMapping("")
+    public Iterable<User> all() {
+        return this.repository.findAll();
+    }
+
+    @PostMapping("/new")
+    public User create(@RequestBody User user) {
+        return this.repository.save(user);
+    }
+
+    @GetMapping("/hello")
     public String sayHello() {
-        return "listing users!";
+        return "hello from the user db!";
     }
 
-//   @RequestMapping(value = "/users/{userId}", method = RequestMethod.GET)
-//    public User getUser(@PathVariable(""))
 }
+
+/*
+{"id": "1", "firstName": "Mike", "lastName": "Hathaway", "city": "Seattle", "state": "WA", "email": "nope"}
+ */
