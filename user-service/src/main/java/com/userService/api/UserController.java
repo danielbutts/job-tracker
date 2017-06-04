@@ -2,11 +2,6 @@ package com.userService.api;
 
 import java.util.List;
 
-//import java.util.concurrent.atomic.AtomicLong;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestParam;
-//import org.springframework.web.bind.annotation.RestController;
-
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -55,6 +50,17 @@ public class UserController {
         return this.repository.save(user);
     }
 
+
+// ********** Delete A User **********
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
+        User user = this.repository.findById(id);
+        this.repository.deleteById(id);
+        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+    }
+
+
+// ********** Test User **********
     @GetMapping("/hello")
     public String sayHello() {
         return "hello from the user db!";
