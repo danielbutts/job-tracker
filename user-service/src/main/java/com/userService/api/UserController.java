@@ -30,8 +30,10 @@ public class UserController {
         return this.repository.findAll();
     }
 
-    @PostMapping("/new")
+//    @PostMapping("/new")
+    @RequestMapping(value="/new", method=RequestMethod.POST)
     public User create(@RequestBody User user) {
+        System.out.println("Creating User "+user.getFirstName());
         return this.repository.save(user);
     }
 
