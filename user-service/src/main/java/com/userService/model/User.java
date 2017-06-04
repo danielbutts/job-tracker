@@ -13,14 +13,6 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
-    public User(String firstName, String lastName, String city, String state, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.city = city;
-        this.state = state;
-        this.email = email;
-    }
-
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
@@ -79,8 +71,5 @@ public class User {
         this.email = email;
     }
 
-    public String listUserInfo() {
-        return String.format("User[id=%d, firstName='%s', lastName='%s', email='%s']", id, firstName, lastName, email);
-    }
 
 }
