@@ -31,8 +31,7 @@ public class User {
     private String email;
 
 
-
-    public String listUsers() {
+    public String listUserInfo() {
         return String.format("User[id=%d, firstName='%s', lastName='%s', email='%s']", id, firstName, lastName, email);
     }
 

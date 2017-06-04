@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @RequestMapping("/hello")
-    public String listUsers() {
+    public String sayHello() {
         return "listing users!";
     }
 
