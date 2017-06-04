@@ -2,17 +2,26 @@ package com.userService.api;
 
 import java.util.List;
 
-import java.util.concurrent.atomic.AtomicLong;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+//import java.util.concurrent.atomic.AtomicLong;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RestController;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 
 import com.userService.model.User;
 import com.userService.model.UserRepository;
+
+/*
+helpful guide:
+    http://websystique.com/spring-boot/spring-boot-rest-api-example/
+ */
 
 @RestController
 @RequestMapping("/users")
@@ -25,15 +34,24 @@ public class UserController {
         this.repository = repository;
     }
 
+// ********** Get ALL Users **********
     @GetMapping("")
     public Iterable<User> all() {
         return this.repository.findAll();
     }
 
-//    @PostMapping("/new")
-    @RequestMapping(value="/new", method=RequestMethod.POST)
+// ********** Get Single User **********
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> getUser(@PathVariable("id") long id) {
+        User user = this.repository.findById(id);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
+
+    }
+
+// ********** Add User **********
+    @PostMapping("/new")
     public User create(@RequestBody User user) {
-        System.out.println("Creating User "+user.getFirstName());
+        System.out.println("Creating User " + user.getFirstName());
         return this.repository.save(user);
     }
 
@@ -45,5 +63,5 @@ public class UserController {
 }
 
 /*
-{"id": "1", "firstName": "Mike", "lastName": "Hathaway", "city": "Seattle", "state": "WA", "email": "nope"}
+'{"id": "1", "firstName": "Mike", "lastName": "Hathaway", "city": "Seattle", "state": "WA", "email": "nope"}'
  */
