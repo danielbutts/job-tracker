@@ -1,15 +1,11 @@
 package com.userService.api;
 
-import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
-
 import com.userService.model.User;
 import com.userService.model.UserRepository;
 
@@ -66,15 +62,16 @@ public class UserController {
         if (currentUser == null) {
             return new ResponseEntity("Unable to upate. User with id " + id + " not found.", HttpStatus.NOT_FOUND);
         }
+        else {
+            currentUser.setFirstName(user.getFirstName());
+            currentUser.setLastName(user.getLastName());
+            currentUser.setCity(user.getCity());
+            currentUser.setState(user.getState());
+            currentUser.setEmail(user.getEmail());
 
-        currentUser.setFirstName(user.getFirstName());
-        currentUser.setLastName(user.getLastName());
-        currentUser.setCity(user.getCity());
-        currentUser.setState(user.getState());
-        currentUser.setEmail(user.getEmail());
-
-        this.repository.save(currentUser);
-        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
+            this.repository.save(currentUser);
+            return new ResponseEntity<User>(currentUser, HttpStatus.OK);
+        }
     }
 
 
