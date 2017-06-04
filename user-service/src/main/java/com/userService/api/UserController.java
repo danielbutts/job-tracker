@@ -2,6 +2,11 @@ package com.userService.api;
 
 import java.util.List;
 
+import java.util.concurrent.atomic.AtomicLong;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,22 +24,16 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/users")
+    @RequestMapping("/users")
     public List <User> getUsers() {
         return (List<User>) userRepository.findAll();
     }
 
-    @RequestMapping
+    @RequestMapping("/hello")
+    public String listUsers() {
+        return "listing users!";
+    }
 
-
-//    public String listUsers() {
-//        return "listing users!";
-//    }
-
-
-
-
-
-//    @RequestMapping(value = "/users/{userId}", method = RequestMethod.GET)
+//   @RequestMapping(value = "/users/{userId}", method = RequestMethod.GET)
 //    public User getUser(@PathVariable(""))
 }
