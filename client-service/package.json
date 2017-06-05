@@ -2,14 +2,25 @@
   "name": "client-service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./app/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "lite-server"
+    "start": "nodemon"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "lite-server": "^2.3.0"
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.0",
+    "express": "^4.15.3",
+    "body-parser": "~1.15.2",
+    "angular-moment": "^1.0.1",
+    "@uirouter/angularjs": "latest",
+    "dotenv": "^4.0.0",
+    "moment": "^2.17.1",
+    "morgan": "^1.8.2",
+    "path": "^0.12.7"
   }
 }

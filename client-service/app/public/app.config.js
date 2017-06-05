@@ -10,8 +10,8 @@
 
     $stateProvider
       .state(
-        {name: 'postList', url: '/', component: 'post'},
-        {name: 'singlePost', url: '/singlePost', component: 'reddit'},
+        {name: 'home', url: '/', component: 'home'},
+        {name: 'login', url: '/login', component: 'login'},
 
       )
 
