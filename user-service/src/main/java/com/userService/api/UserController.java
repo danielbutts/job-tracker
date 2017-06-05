@@ -26,11 +26,13 @@ public class UserController {
         this.repository = repository;
     }
 
+
     // ********** Get ALL Users **********
     @GetMapping("")
     public Iterable<User> all() {
         return this.repository.findAll();
     }
+
 
     // ********** Add User **********
     @PostMapping("")
@@ -38,6 +40,7 @@ public class UserController {
         System.out.println("Creating User " + user.getFirstName());
         return this.repository.save(user);
     }
+
 
     // ********** Get Single User **********
     @GetMapping("/{id}")
@@ -52,6 +55,7 @@ public class UserController {
         }
 
     }
+
 
     // ********** Update A User **********
     @PutMapping("/{id}")
@@ -82,6 +86,7 @@ public class UserController {
         this.repository.deleteById(id);
         return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
     }
+
 
 
     /* ********** Authentication **********
