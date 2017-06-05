@@ -19,6 +19,7 @@ helpful guide:
 //CrossOrigin takes an argument - the whitelisted call sources
 
 @RestController
+//@CrossOrigin(origins = "http://localhost:5000", methods = RequestMethod.POST)
 @CrossOrigin
 @RequestMapping("/users")
 public class UserController {

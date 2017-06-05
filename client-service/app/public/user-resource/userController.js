@@ -1,4 +1,5 @@
 (function(){
+
   angular.module('app')
     .component('login', {
       templateUrl: '/../user-resource/user-template.html',
@@ -11,7 +12,23 @@
 
     vm.login = function(e){
       e.preventDefault()
-      console.log(vm.email, vm.password)
+      const email = vm.email
+      const password = vm.password
+
+      userService.login()
+        .then((response) => console.log(response))
+        .catch((err) => console.error(err))
+    }
+
+    vm.register = function(){
+      const newUser = {email: vm.email, password: vm.password, firstName: vm.firstName}
+      console.log(newUser)
+
+      userService.register(newUser)
+        .then((response) => console.log(response))
+        .catch((err) => console.error(err))
+
+      delete newUser
     }
 
     vm.getUsers = function(){
@@ -19,14 +36,6 @@
         .then((response) => console.log(response))
         .catch((err) => console.error(err))
     }
-
-    vm.getSingleUser = function(){
-      userService.getUser()
-        .then((response) => console.log(response))
-        .catch((err) => console.error(err))
-    }
-
-
 
   }
 
