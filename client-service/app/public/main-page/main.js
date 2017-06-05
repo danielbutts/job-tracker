@@ -1,7 +1,7 @@
 (function(){
   angular.module('app')
     .component('mains', {
-      template: '<h1>MAIN PAGE YO</h1>',
+      templateUrl: '/../main-page/main-template.html',
       controller: mainController,
     })
 
