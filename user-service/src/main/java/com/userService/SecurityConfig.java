@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 
-    //Need to modify auth method chain to check the database
+    //Need to modify auth method chain to check the database as opposed to inMemoryAuth
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth

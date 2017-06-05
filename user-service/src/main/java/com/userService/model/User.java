@@ -2,13 +2,6 @@ package com.userService.model;
 
 import javax.persistence.*;
 
-
-/**
- * Created by mike on 6/3/17.
- * https://spring.io/guides/gs/accessing-data-jpa/
- * http://briansjavablog.blogspot.com/2015/12/spring-boot-rest-tutorial.html
- */
-
 @Entity
 @Table(name = "users")
 public class User {
