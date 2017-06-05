@@ -13,9 +13,13 @@ import com.userService.model.UserRepository;
 helpful guide:
     http://websystique.com/spring-boot/spring-boot-rest-api-example/
     https://github.com/viralpatel/spring4-restful-example/blob/master/src/main/java/net/viralpatel/spring/controller/CustomerRestController.java
+    https://spring.io/guides/gs/rest-service-cors/
  */
 
+//CrossOrigin takes an argument - the whitelisted call sources
+
 @RestController
+@CrossOrigin
 @RequestMapping("/users")
 public class UserController {
 

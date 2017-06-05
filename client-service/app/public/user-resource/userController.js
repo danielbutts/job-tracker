@@ -9,6 +9,24 @@
   function userController(userService){
     const vm = this
 
+    vm.login = function(e){
+      e.preventDefault()
+      console.log(vm.email, vm.password)
+    }
+
+    vm.getUsers = function(){
+      userService.getUsers()
+        .then((response) => console.log(response))
+        .catch((err) => console.error(err))
+    }
+
+    vm.getSingleUser = function(){
+      userService.getUser()
+        .then((response) => console.log(response))
+        .catch((err) => console.error(err))
+    }
+
+
 
   }
 

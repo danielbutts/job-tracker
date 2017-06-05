@@ -4,11 +4,13 @@
     	  <div class="modal-dialog">
 				<div class="loginmodal-container">
 					<h1>Login to Your Account</h1><br>
-				  <form>
-					<input type="text" name="user" placeholder="Username">
-					<input type="password" name="pass" placeholder="Password">
-					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
+				  <form ng-submit="$ctrl.login($event)">
+					<input type="text" name="email" placeholder="Email" ng-model="$ctrl.email">
+					<input type="password" name="password" placeholder="Password" ng-model="$ctrl.password">
+					<input type="submit" class="login loginmodal-submit" value="Login">
 				  </form>
+
+          <button type="button" ng-click="$ctrl.getUser()">TEST API CALL</button>
 
 				  <div class="login-help">
 					<a href="#">Register</a> - <a href="#">Forgot Password</a>
