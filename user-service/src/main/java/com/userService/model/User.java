@@ -2,24 +2,9 @@ package com.userService.model;
 
 import javax.persistence.*;
 
-
-/**
- * Created by mike on 6/3/17.
- * https://spring.io/guides/gs/accessing-data-jpa/
- * http://briansjavablog.blogspot.com/2015/12/spring-boot-rest-tutorial.html
- */
-
 @Entity
 @Table(name = "users")
 public class User {
-
-    public User(String firstName, String lastName, String city, String state, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.city = city;
-        this.state = state;
-        this.email = email;
-    }
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -30,6 +15,7 @@ public class User {
     private String city;
     private String state;
     private String email;
+    private String password;
 
     public Long getId() {
         return id;
@@ -79,8 +65,11 @@ public class User {
         this.email = email;
     }
 
-    public String listUserInfo() {
-        return String.format("User[id=%d, firstName='%s', lastName='%s', email='%s']", id, firstName, lastName, email);
+    public String getPassword() {
+        return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
