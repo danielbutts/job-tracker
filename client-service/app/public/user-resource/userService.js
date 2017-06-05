@@ -1,6 +1,8 @@
 (function(){
-  angular.module('app')
-    .component('login', {
-      templateUrl: '/../users-resource'
-    })
-})
+  angular.module('app').service('userService', userService)
+
+  userService.$inject = ['$http']
+  function userService($http){
+    const vm = this
+  }
+}())

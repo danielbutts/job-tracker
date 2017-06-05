@@ -12,6 +12,8 @@
     <script defer src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="./assets/style.css">
+
     <!-- ANGULAR DEPENDENCIES  -->
     <script defer src="angular/angular.min.js"></script>
     <script defer src="moment/moment.js"></script>
@@ -21,12 +23,16 @@
     <!-- ANGULAR WIRING  -->
     <script defer src="./app.module.js"></script>
     <script defer src="./app.config.js"></script>
+    <script defer src="./main.js"></script>
     <script defer src="./user-resource/userService.js"></script>
     <script defer src="./user-resource/userController.js"></script>
+
     <base href="/">
 
   </head>
   <body>
+
     <ui-view></ui-view>
+
   </body>
 </html>
