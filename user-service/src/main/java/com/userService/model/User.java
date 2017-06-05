@@ -22,6 +22,7 @@ public class User {
     private String city;
     private String state;
     private String email;
+    private String password;
 
     public Long getId() {
         return id;
@@ -71,5 +72,11 @@ public class User {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

@@ -83,6 +83,14 @@ public class UserController {
         return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
     }
 
+
+    /* ********** Authentication **********
+
+        https://www.tutorialspoint.com/servlets/servlets-session-tracking.htm
+    */
+    //@PostMapping("/auth")
+
+
 }
 
 /*
