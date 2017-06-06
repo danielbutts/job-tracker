@@ -1,5 +1,7 @@
 package com.example.jobtracker;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -11,22 +13,17 @@ import javax.persistence.*;
 public class Stage {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Integer contact_id;
-
-    @ManyToOne
-    @JoinTable(name="stage_stage_type",
-            joinColumns = @JoinColumn(name = "stage_id"),
-            inverseJoinColumns = @JoinColumn(name = "stage_type_id"))
     private StageType stage_type;
 
-
-//    @ManyToOne
-//    @JoinTable(name="application_stage",
-//            joinColumns = @JoinColumn(name = "stage_id"),
-//            inverseJoinColumns = @JoinColumn(name = "application_id"))
-//    Application application;
+    @ManyToOne
+    @JoinTable(name="application_stage",
+            joinColumns = @JoinColumn(name = "stage_id"),
+            inverseJoinColumns = @JoinColumn(name = "application_id"))
+    @JsonIgnore
+    Application application;
 
     public Long getId() {
         return id;
@@ -36,13 +33,13 @@ public class Stage {
         this.id = id;
     }
 
-//    public Application getApplication() {
-//        return application;
-//    }
-//
-//    public void setApplication(Application application) {
-//        this.application = application;
-//    }
+    public Application getApplication() {
+        return application;
+    }
+
+    public void setApplication(Application application) {
+        this.application = application;
+    }
 
     public Integer getContact_id() {
         return contact_id;
@@ -56,7 +53,36 @@ public class Stage {
         return stage_type;
     }
 
-    public void setStage_type(StageType stage_type) {
-        this.stage_type = stage_type;
+    public void setStage_type(Integer stage_type_id) {
+        this.stage_type = StageType.getById(stage_type_id);
+    }
+
+    public enum StageType {
+        closed(-1),
+        target(0),
+        outreach(1),
+        response(2),
+        informational(3),
+        coffee(3),
+        call(3),
+        apply(4),
+        screening(5),
+        in_person(6),
+        technical(7),
+        takehome(8),
+        offer(9);
+
+        private Integer id;
+
+        StageType(Integer id) {
+            this.id = id;
+        }
+
+        public static StageType getById(Integer id) {
+            for(StageType e : values()) {
+                if(e.id.equals(id)) return e;
+            }
+            return null;
+        }
     }
 }

@@ -14,7 +14,7 @@ import java.util.Date;
 public class Action {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Integer application_id;

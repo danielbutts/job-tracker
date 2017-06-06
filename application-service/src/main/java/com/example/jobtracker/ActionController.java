@@ -21,6 +21,11 @@ public class ActionController {
         return this.repository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Action getActionById(@PathVariable Long id) {
+        return this.repository.findOne(id);
+    }
+
     @PostMapping("")
     public Action create(@RequestBody Action action) {
         return this.repository.save(action);

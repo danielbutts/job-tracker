@@ -21,6 +21,11 @@ public class StageController {
         return this.repository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Stage getStageById(@PathVariable Long id) {
+        return this.repository.findOne(id);
+    }
+
     @PostMapping("")
     public Stage create(@RequestBody Stage stage) {
         return this.repository.save(stage);

@@ -12,14 +12,14 @@ import java.util.Set;
 public class Application {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "application_id")
     private Long id;
 
     private Integer user_id;
     private Integer job_id;
-
     private String notes;
+    private Integer stage_id;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -60,6 +60,11 @@ public class Application {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+//    public void setStage(Integer stage_id) {
+//
+//        this.stage_id = stage_id;
+//    }
 
     public Set<Stage> getStages() {
         return stages;
