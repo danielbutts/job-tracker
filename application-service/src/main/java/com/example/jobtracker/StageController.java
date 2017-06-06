@@ -2,6 +2,9 @@ package com.example.jobtracker;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Set;
+
 /**
  * Created by danielbutts on 6/3/17.
  */
@@ -23,7 +26,22 @@ public class StageController {
 
     @GetMapping("/{id}")
     public Stage getStageById(@PathVariable Long id) {
+        System.out.println("HERE!!!!!!!! " + id);
         return this.repository.findOne(id);
+    }
+
+    @GetMapping("/types")
+    public Iterable<Stage.StageType> allTypes() {
+        ArrayList<Stage.StageType> stageTypes = new ArrayList<Stage.StageType>();
+        for(Stage.StageType e : Stage.StageType.values()) {
+            stageTypes.add(e);
+        }
+        return stageTypes;
+    }
+
+    @GetMapping("application/{id}")
+    public Set<Stage> getStagesByApplicationId(@PathVariable Long id) {
+        return this.repository.findByApplicationId(id);
     }
 
     @PostMapping("")

@@ -16,10 +16,9 @@ public class Application {
     @Column(name = "application_id")
     private Long id;
 
-    private Integer user_id;
-    private Integer job_id;
+    private Integer userId;
+    private Integer jobId;
     private String notes;
-    private Integer stage_id;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -37,20 +36,20 @@ public class Application {
         this.id = id;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public Integer getJob_id() {
-        return job_id;
+    public Integer getJobId() {
+        return jobId;
     }
 
-    public void setJob_id(Integer job_id) {
-        this.job_id = job_id;
+    public void setJobId(Integer jobId) {
+        this.jobId = jobId;
     }
 
     public String getNotes() {
@@ -60,11 +59,6 @@ public class Application {
     public void setNotes(String notes) {
         this.notes = notes;
     }
-
-//    public void setStage(Integer stage_id) {
-//
-//        this.stage_id = stage_id;
-//    }
 
     public Set<Stage> getStages() {
         return stages;

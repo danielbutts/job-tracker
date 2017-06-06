@@ -57,7 +57,21 @@ public class UserController {
         else {
             return new ResponseEntity<User>(user, HttpStatus.OK);
         }
+    }
 
+
+    // **********  User Login **********
+    @PostMapping("/login")
+    public User login(@RequestBody User user) {
+        //take username and compare password with the matching username in the db
+        User existingUser = this.repository.findByUsername(user.getUsername());
+
+        if(existingUser.getPassword().equals(user.getPassword())){
+            System.out.println("Authenticated User " + user.getUsername());
+            return existingUser;
+
+        }
+        return null;
     }
 
 
