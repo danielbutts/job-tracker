@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 //https://spring.io/guides/gs/securing-web/
+//https://stackoverflow.com/questions/39977307/spring-api-rest-and-cors-and-angularjs
 
 @Configuration
 @EnableWebSecurity

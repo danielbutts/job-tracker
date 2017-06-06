@@ -6,9 +6,9 @@
     const vm = this
 
     //checks the database for where the emails match db emails
-    vm.login = function(email){
+    vm.login = function(user){
       const userUrl = `http://localhost:8080/users`
-      return $http.post(userUrl, {email: email})
+      return $http.post(userUrl, user)
     }
 
     vm.register = function(newUser){

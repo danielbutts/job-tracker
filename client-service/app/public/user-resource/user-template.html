@@ -57,11 +57,11 @@
                             <h1>Log in</h1>
                             <p>
                                 <label for="username" class="uname"> Your email or username </label>
-                                <input id="username" name="email" required="required" type="text" ng-model="$ctrl.email" placeholder="myusername or mymail@mail.com" />
+                                <input id="username" name="email" required="required" type="text" ng-model="$ctrl.user.email" placeholder="myusername or mymail@mail.com" />
                             </p>
                             <p>
                                 <label for="password" class="youpasswd"> Your password </label>
-                                <input id="password" name="password" required="required" type="password" ng-model="$ctrl.password" placeholder="eg. X8df!90EO" />
+                                <input id="password" name="password" required="required" type="password" ng-model="$ctrl.user.password" placeholder="eg. X8df!90EO" />
                             </p>
                             <p class="keeplogin">
                                 <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
@@ -81,16 +81,16 @@
                             <h1> Sign up </h1>
                             <p>
                                 <label for="usernamesignup" class="uname">Your username</label>
-                                <input id="usernamesignup" name="firstName" required="required" type="text" placeholder="mysuperusername690" ng-model="$ctrl.firstName" />
+                                <input id="usernamesignup" name="firstName" required="required" type="text" placeholder="mysuperusername690" ng-model="$ctrl.user.firstName" />
                             </p>
                             <p>
                                 <label for="emailsignup" class="youmail"> Your email</label>
-                                <input id="emailsignup" name="email" required="required" type="email" placeholder="mysupermail@mail.com" ng-model="$ctrl.email" />
+                                <input id="emailsignup" name="email" required="required" type="email" placeholder="mysupermail@mail.com" ng-model="$ctrl.user.email" />
                             </p>
 
                             <p>
                                 <label for="passwordsignup" class="youpasswd">Your password </label>
-                                <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO" ng-model="$ctrl.password" />
+                                <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO" ng-model="$ctrl.user.password" />
                             </p>
                             <p>
                                 <label for="passwordsignup_confirm" class="youpasswd">Please confirm your password </label>
