@@ -17,32 +17,39 @@ public class Action {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Integer application_id;
+    private Integer userId;
+    private Integer applicationId;
     private String message;
-    private Integer stage_id;
-
+    private Integer stageId;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
-    private Date active_date;
-
+    private Date activeDate;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
-    private Date create_date;
-    private boolean is_active;
-    private boolean is_complete;
+    private Date createDate;
+    private boolean isActive;
+    private boolean isComplete;
 
     public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getApplication_id() {
-        return application_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setApplication_id(Integer application_id) {
-        this.application_id = application_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getApplicationId() {
+        return applicationId;
+    }
+
+    public void setApplicationId(Integer applicationId) {
+        this.applicationId = applicationId;
     }
 
     public String getMessage() {
@@ -53,44 +60,44 @@ public class Action {
         this.message = message;
     }
 
-    public Integer getStage_id() {
-        return stage_id;
+    public Integer getStageId() {
+        return stageId;
     }
 
-    public void setStage_id(Integer stage_id) {
-        this.stage_id = stage_id;
+    public void setStageId(Integer stageId) {
+        this.stageId = stageId;
     }
 
-    public Date getActive_date() {
-        return active_date;
+    public Date getActiveDate() {
+        return activeDate;
     }
 
-    public void setActive_date(Date active_date) {
-        this.active_date = active_date;
+    public void setActiveDate(Date activeDate) {
+        this.activeDate = activeDate;
     }
 
-    public Date getCreate_date() {
-        return create_date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public boolean isIs_active() {
-        return is_active;
+    public boolean isActive() {
+        return isActive;
     }
 
-    public void setIs_active(boolean is_active) {
-        this.is_active = is_active;
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
-    public boolean isIs_complete() {
-        return is_complete;
+    public boolean isComplete() {
+        return isComplete;
     }
 
-    public void setIs_complete(boolean is_complete) {
-        this.is_complete = is_complete;
+    public void setComplete(boolean complete) {
+        isComplete = complete;
     }
 }
 

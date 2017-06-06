@@ -15,8 +15,8 @@ public class Stage {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Integer contact_id;
-    private StageType stage_type;
+    private Integer contactId;
+    private StageType stageType;
 
     @ManyToOne
     @JoinTable(name="application_stage",
@@ -41,21 +41,26 @@ public class Stage {
         this.application = application;
     }
 
-    public Integer getContact_id() {
-        return contact_id;
+
+    public Integer getContactId() {
+        return contactId;
     }
 
-    public void setContact_id(Integer contact_id) {
-        this.contact_id = contact_id;
+    public void setContactId(Integer contactId) {
+        this.contactId = contactId;
     }
 
-    public StageType getStage_type() {
-        return stage_type;
+    public StageType getStageType() {
+        return stageType;
     }
 
-    public void setStage_type(Integer stage_type_id) {
-        this.stage_type = StageType.getById(stage_type_id);
+    public void setStageType(StageType stageType) {
+        this.stageType = stageType;
     }
+
+//    public void setStageType(Integer stage_type_id) {
+//        this.stageType = StageType.getById(stage_type_id);
+//    }
 
     public enum StageType {
         closed(-1),

@@ -35,15 +35,18 @@ public class ApplicationController {
 
     @PatchMapping("/{id}")
     public Application update(@RequestBody Application application, @PathVariable Long id) {
+        System.out.println("UPDATE APP!!!!!" + id);
         Application app = this.repository.findOne(id);
+
+        System.out.println("APPPP!!!!!" + app);
         if (application.getNotes() != null) {
             app.setNotes(application.getNotes());
         }
-        if (application.getJob_id() != null) {
-            app.setJob_id(application.getJob_id());
+        if (application.getJobId() != null) {
+            app.setJobId(application.getJobId());
         }
-        if (application.getUser_id() != null) {
-            app.setUser_id(application.getUser_id());
+        if (application.getUserId() != null) {
+            app.setUserId(application.getUserId());
         }
         if (application.getStages() != null) {
             app.setStages(application.getStages());
