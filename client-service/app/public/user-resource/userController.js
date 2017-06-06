@@ -10,14 +10,22 @@
   function userController(userService){
     const vm = this
 
+
+    // could use bcrypt as hashed here to compare a hashed version of the password versus the version retreived from the database
+      //this would require hashing the password prior to registering it in the database
+
     vm.login = function(e){
       e.preventDefault()
       const user = {username: vm.user.username, password: vm.user.password}
       console.log(user)
-      // could use bcrypt as hashed here to compare a hashed version of the password versus the version retreived from the database
-        //this would require hashing the password prior to registering it in the database
+
       userService.login(user)
-        .then((response) => console.log(response))
+        .then((response) => {
+          if(response){
+            user.status = response.data.status
+          }
+          console.log('username or password are incorrect')
+        })
         .catch((err) => console.error(err))
 
       delete vm.user
@@ -41,5 +49,4 @@
     }
 
   }
-
 }())
