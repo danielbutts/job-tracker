@@ -8,10 +8,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- BOOTSTRAP DEPENDENCIES  -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <script defer src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/login-form.css">
     <link rel="stylesheet" href="./assets/style.css">
 
@@ -24,11 +24,18 @@
     <!-- ANGULAR WIRING  -->
     <script defer src="./app.module.js"></script>
     <script defer src="./app.config.js"></script>
-    <script defer src="./main-page/main.js"></script>
+
+    <!-- /////// Main page controllers //////////// -->
+    <script defer src="./main-page/mainController.js"></script>
+    <script defer src="./main-page/applications.component.js"></script>
+    <script defer src="./main-page/analytics.component.js"></script>
+    <script defer src="./main-page/actions.component.js"></script>
+
     <script defer src="./services/userService.js"></script>
     <script defer src="./header-footer/nav.component.js"></script>
     <script defer src="./header-footer/footer.component.js"></script>
     <script defer src="./user-resource/userController.js"></script>
+
 
     <base href="/">
 
