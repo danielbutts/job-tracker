@@ -3,7 +3,6 @@ package com.userService.api;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import com.userService.model.User;
@@ -42,7 +41,7 @@ public class UserController {
     // ********** Add User **********
     @PostMapping("")
     public User create(@RequestBody User user) {
-        System.out.println("Creating User " + user.getFirstName());
+        System.out.println("Creating User " + user.getUsername());
         return this.repository.save(user);
     }
 
@@ -72,8 +71,8 @@ public class UserController {
             return new ResponseEntity("Unable to upate. User with id " + id + " not found.", HttpStatus.NOT_FOUND);
         }
         else {
-            currentUser.setFirstName(user.getFirstName());
-            currentUser.setLastName(user.getLastName());
+            currentUser.setUsername(user.getUsername());
+            currentUser.setPassword(user.getPassword());
             currentUser.setCity(user.getCity());
             currentUser.setState(user.getState());
             currentUser.setEmail(user.getEmail());
@@ -92,17 +91,4 @@ public class UserController {
         return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
     }
 
-
-
-    /* ********** Authentication **********
-
-        https://www.tutorialspoint.com/servlets/servlets-session-tracking.htm
-    */
-    //@PostMapping("/auth")
-
-
 }
-
-/*
-'{"id": "1", "firstName": "Mike", "lastName": "Hathaway", "city": "Seattle", "state": "WA", "email": "nope"}'
- */
