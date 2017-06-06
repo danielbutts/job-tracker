@@ -10,10 +10,6 @@
   function userController(userService){
     const vm = this
 
-
-    // could use bcrypt as hashed here to compare a hashed version of the password versus the version retreived from the database
-      //this would require hashing the password prior to registering it in the database
-
     vm.login = function(e){
       e.preventDefault()
       const user = {username: vm.user.username, password: vm.user.password}
