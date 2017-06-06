@@ -19,6 +19,9 @@ public class CompanyController {
         return this.repository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Company getIndividualContact(@PathVariable("id") Long id) {return this.repository.findOne(id);}
+
     @PostMapping("")
     public Company create(@RequestBody Company company) {
         return this.repository.save(company);

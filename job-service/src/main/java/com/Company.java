@@ -30,21 +30,25 @@ public class Company {
     private Set<Job> job;
 
 
+    @OneToMany
+    @JoinTable(name="company_contact",
+            joinColumns = @JoinColumn(name = "company_id"),
+            inverseJoinColumns = @JoinColumn(name = "contact_id"))
+    private Set<Contact> contact;
+
+
     private String name;
     private String city;
     private String url;
     private String state;
-    private String description;
+    private String note;
 
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() {return id;}
 
     public void setId(Long id) {
         this.id = id;
     }
-
 
 
     public String getName() {
@@ -74,12 +78,12 @@ public class Company {
     }
 
 
-    public String getDescription() {
-        return description;
+    public String getNote() {
+        return note;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setNote(String note) {
+        this.note = note;
     }
 
 
@@ -98,5 +102,14 @@ public class Company {
 
     public void setJob(Set<Job> job) {
         this.job = job;
+    }
+
+
+    public Set<Contact> getContact() {
+        return contact;
+    }
+
+    public void setContact(Set<Contact> contact) {
+        this.contact = contact;
     }
 }

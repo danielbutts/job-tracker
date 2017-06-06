@@ -60,6 +60,7 @@ public class Job {
         this.url = url;
     }
 
+
     public Company getCompany() {
         return company;
     }
