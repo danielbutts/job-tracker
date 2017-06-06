@@ -1,13 +1,17 @@
 (function(){
   angular.module('app')
-    .component('dashboard', {
-      templateUrl: '/../main-page/main-template.html',
-      controller: mainController,
+    .component('navbar', {
+      templateUrl: '/../header-footer/nav.template.html',
+      controller: navController,
     })
 
-  function mainController(){
+  navController.$inject = ['userService']
+  function navController(){
     const vm = this
 
+    vm.logout = function(){
+      userService.logout()
+        .catch((err) => console.error(err))
+    }
   }
-
-})()
+}())

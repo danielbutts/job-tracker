@@ -1,7 +1,7 @@
 (function(){
   angular.module('app')
-    .component('dashboard', {
-      templateUrl: '/../main-page/main-template.html',
+    .component('footerbar', {
+      templateUrl: '/../header-footer/footer-template.html',
       controller: mainController,
     })
 
