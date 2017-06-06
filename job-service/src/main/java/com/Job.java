@@ -1,6 +1,7 @@
-package com.job;
+package com;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -9,7 +10,15 @@ public class Job {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "job_id")
     private Long id;
+
+
+    @ManyToOne
+    @JoinTable(name="company_job",
+            joinColumns = @JoinColumn(name = "job_id"),
+            inverseJoinColumns = @JoinColumn(name = "company_id"))
+    private Company company;
 
     private String title;
     private String url;
@@ -20,7 +29,7 @@ public class Job {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -49,5 +58,13 @@ public class Job {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }

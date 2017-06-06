@@ -1,27 +1,27 @@
-package com.job;
+package com;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/jobs")
-public class JobController {
+@RequestMapping("/contacts")
+public class ContactController {
 
-    private final JobRepository repository;
+    private final ContactRepository repository;
 
-    public JobController(JobRepository repository) {
+    public ContactController(ContactRepository repository) {
         this.repository = repository;
     }
 
     @GetMapping("")
-    public Iterable<Job> all() {
+    public Iterable<Contact> all() {
         return this.repository.findAll();
     }
 
     @PostMapping("")
-    public Job create(@RequestBody Job job) {
-        return this.repository.save(job);
+    public Contact create(@RequestBody Contact contact) {
+        return this.repository.save(contact);
     }
 
 }
