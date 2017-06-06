@@ -9,7 +9,7 @@
     $locationProvider.html5Mode(true)
 
     $stateProvider
-      .state({name: 'homePage', url: '/', component: 'mains'})
+      .state({name: 'homePage', url: '/', component: 'dashboard'})
       .state({name: 'loginPage', url: '/login', component: 'login'})
 
   }

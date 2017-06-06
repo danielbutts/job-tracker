@@ -1,6 +1,6 @@
 (function(){
   angular.module('app')
-    .component('mains', {
+    .component('dashboard', {
       templateUrl: '/../main-page/main-template.html',
       controller: mainController,
     })
