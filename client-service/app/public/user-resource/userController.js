@@ -21,7 +21,7 @@
     }
 
     vm.logout = function(){
-      userService.logout(user)
+      userService.logout()
         .catch((err) => console.error(err))
     }
 
