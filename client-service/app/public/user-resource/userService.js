@@ -7,17 +7,13 @@
     const vm = this
 
     vm.login = function(user){
-      const userUrl = `http://localhost:8080/users/${user.username}`
-      user.status = false
+      const userLoginUrl = `http://localhost:5000/api/auth/login`
+      return $http.post(userLoginUrl, user)
+    }
 
-      return $http.get(userUrl)
-        .then((response) => {
-          if(response.data.password === user.password){
-            user.status = true
-            return $http.post(userUrl, user)
-          }
-        })
-        .catch((err) => console.error(err))
+    vm.logout = function(){
+      const userLogout = `http://localhost:5000/api/auth/logout`
+      return $http.delete(userLogout)
     }
 
     vm.register = function(newUser){
@@ -31,5 +27,4 @@
     }
 
   }
-
 }())

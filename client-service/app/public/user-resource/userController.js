@@ -13,18 +13,16 @@
     vm.login = function(e){
       e.preventDefault()
       const user = {username: vm.user.username, password: vm.user.password}
-      console.log(user)
 
       userService.login(user)
-        .then((response) => {
-          if(response){
-            user.status = response.data.status
-          }
-          console.log('username or password are incorrect')
-        })
         .catch((err) => console.error(err))
 
       delete vm.user
+    }
+
+    vm.logout = function(){
+      userService.logout(user)
+        .catch((err) => console.error(err))
     }
 
     vm.register = function(){
