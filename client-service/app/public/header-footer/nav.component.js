@@ -9,7 +9,11 @@
   function navController(){
     const vm = this
 
+    vm.loggedIn = true
+
     vm.logout = function(){
+      vm.loggedIn = false
+      
       userService.logout()
         .catch((err) => console.error(err))
     }

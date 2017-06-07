@@ -1,4 +1,33 @@
-.git-logo {
-  width: 100px;
-  height: 100px;
+html {
+ font-size: 16px;
+}
+
+
+
+
+/* NAV CSS*/
+.navbar-dimensions {
+  height: 6em;
+  width:100%;
+}
+
+
+
+
+
+/* FOOTER CSS*/
+
+.prof-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.top-of-footer {
+  margin-top: 1em;
+}
+
+.bottm-of-footer {
+  margin-bottom: 2em;
+  position: absolute;
 }
