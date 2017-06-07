@@ -6,15 +6,18 @@
       controller: applicationController,
     })
 
-  applicationController.$inject = ['applicationService', '$http']
-  function applicationController(applicationService, $http){
+  applicationController.$inject = ['applicationService', '$http', 'JOB_SERVICE_URL']
+  function applicationController(applicationService, $http, JOB_SERVICE_URL){
     const vm = this
 
     vm.$onInit = function () {
-      $http.get(`http://localhost:8081/companies`).then(function (response) {
+      $http.get(`${JOB_SERVICE_URL}/companies`).then(function (response) {
         console.log(response.data);
         vm.companies = response.data
-        vm.test = 'timmy'
+        $http.get(`${JOB_SERVICE_URL}/jobs`).then(function (response) {
+          console.log(response.data);
+          vm.jobs = response.data
+        })
       })
       .catch(err => {
         console.log(err);
@@ -24,54 +27,71 @@
     vm.create = function(e){
       e.preventDefault()
 
-      const {title, company, city, state, url, description} = vm.application
+      const {title, companyName, city, state, url, description} = vm.application
       const userId = 1
 
-      $http.get(`http://localhost:8081/companies`).then(function (response) {
-        console.log(response.data);
-        // vm.editArticle = response.data
+      let company;
+      let newJob;
+      vm.jobs.forEach((job) => {
+        if (url === job.url) {
+          newJob = job;
+          console.log(`Job Found ${job.id}`);
+
+          if (job.company !== undefined) {
+            company = job.company
+            console.log(`Company Found ${job.company}`);
+          }
+        }
       })
-      .catch(err => {
-        console.log(err);
-      })
 
+      if (company === undefined) {
+        company = {
+          name: companyName,
+          city: city,
+          state: state
+        };
 
-
-      const application = {
-        companyId: vm.application.companyId,
-        title: vm.application.title,
-        userId: userId,
-
-
+        $http.post(`${JOB_SERVICE_URL}/companies`, company).then(function (response) {
+          console.log(response.data);
+          // vm.editArticle = response.data
+        })
+        .catch(err => {
+          console.log(err);
+        })
       }
-
-      userService.login(user)
-        .catch((err) => console.error(err))
-
-      delete vm.user
     }
 
-    vm.logout = function(){
-      userService.logout()
-        .catch((err) => console.error(err))
-    }
+    // vm.companies.forEach((el) => {
+    //   if (companyName === el.name) {
+    //     companyId = el.id;
+    //   }
+    // })
 
-    vm.register = function(){
-      const newUser = {email: vm.user.email, password: vm.user.password, username: vm.user.username}
-      console.log(newUser)
+    // if (companyId === undefined) {
+    //   let company = {
+    //     name: companyName,
+    //     city: city,
+    //     state: state
+    //   };
 
-      userService.register(newUser)
-        .then((response) => console.log(response))
-        .catch((err) => console.error(err))
 
-      delete vm.user
-    }
-
-    vm.getUsers = function(){
-      userService.getUsers()
-        .then((response) => console.log(response))
-        .catch((err) => console.error(err))
-    }
+    // } else {
+    //   $http.get(`${JOB_SERVICE_URL}/companies/${companyId}`).then(function (response) {
+    //     console.log(response.data);
+    //     // vm.editArticle = response.data
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   })
+    // }
+    //
+    // const application = {
+    //   companyId: vm.application.companyId,
+    //   title: vm.application.title,
+    //   userId: userId,
+    //
+    //
+    // }
 
   }
 }())

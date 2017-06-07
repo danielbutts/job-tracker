@@ -17,12 +17,12 @@
     }
 
     vm.createApplication = function(application) {
-      const url = `${process.env.APPLICATION_SERVICE_URL}/applications`
+      const url = `${APPLICATION_SERVICE_URL}/applications`
       return $http.post(url, application)
     }
 
     vm.updateApplication = function(appId, application) {
-      const url = `${process.env.APPLICATION_SERVICE_URL}/applications/${appId}`
+      const url = `${APPLICATION_SERVICE_URL}/applications/${appId}`
       return $http.patch(url, application)
     }
 
