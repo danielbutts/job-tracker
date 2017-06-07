@@ -9,6 +9,7 @@ import java.util.Set;
  */
 
 @RestController
+@CrossOrigin
 @RequestMapping("/actions")
 public class ActionController {
 
