@@ -2,17 +2,17 @@
 
   angular.module('app').service('applicationService', applicationService)
 
-  applicationService.$inject = ['$http']
-  function applicationService($http){
+  applicationService.$inject = ['$http', 'APPLICATION_SERVICE_URL']
+  function applicationService($http, APPLICATION_SERVICE_URL){
     const vm = this
 
     vm.getAllApplicationsForUser = function(userId){
-      const url = `${process.env.APPLICATION_SERVICE_URL}/applications/user/${userId}`
+      const url = `${APPLICATION_SERVICE_URL}/applications/${userId}`
       return $http.get(url)
     }
 
-    vm.getApplication = function(appId){
-      const url = `${process.env.APPLICATION_SERVICE_URL}/applications/${appId}`
+    vm.getApplication = function(userId){
+      const url = `${APPLICATION_SERVICE_URL}/applications/user/${userId}`
       return $http.get(url)
     }
 
