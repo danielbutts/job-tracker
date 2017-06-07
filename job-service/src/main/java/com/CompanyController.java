@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/companies")
+@CrossOrigin
 public class CompanyController {
 
     private final CompanyRepository repository;

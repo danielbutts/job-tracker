@@ -16,8 +16,8 @@ public class Application {
     @Column(name = "application_id")
     private Long id;
 
-    private Integer userId;
-    private Integer jobId;
+    private Long userId;
+    private Long jobId;
     private String notes;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -36,19 +36,19 @@ public class Application {
         this.id = id;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getJobId() {
+    public Long getJobId() {
         return jobId;
     }
 
-    public void setJobId(Integer jobId) {
+    public void setJobId(Long jobId) {
         this.jobId = jobId;
     }
 

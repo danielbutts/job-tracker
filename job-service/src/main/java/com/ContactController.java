@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/contacts")
+@CrossOrigin
 public class ContactController {
 
     private final ContactRepository repository;
