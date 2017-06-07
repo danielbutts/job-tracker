@@ -1,7 +1,11 @@
 (function() {
   'use strict'
 
-  angular.module('app').config(config)
+  angular.module('app')
+  .constant('APPLICATION_SERVICE_URL', 'https://job-tracker-apps-service.herokuapp.com/')
+  .constant('JOB_SERVICE_URL', 'http://localhost:8081/')
+  .constant('USER_SERVICE_URL', 'https://job-tracker-user-service.herokuapp.com/')
+  .config(config)
 
   config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider']
 

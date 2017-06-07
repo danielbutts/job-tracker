@@ -4,7 +4,8 @@
       <h2 class="panel-title">Actions</h2>
     </div>
         <ul class="list-group" ng-repeat="action in $ctrl.actions">
-          <li class="list-group-item text-left panel-body"  ng-if="action.active && !action.complete">
+          <li class="list-group-item text-left panel-body" ng-class="mouseHover" ng-mouseover="mouseHover='active-hover'"
+    ng-mouseleave="mouseHover=''"  ng-if="action.active && !action.complete">
               {{action.message}}
               {{action.id}}
             <a class="pull-right glyphicon glyphicon-remove clickable_space" ng-click="$ctrl.updateAction(action,'active',action.id)" href="#"></a>
