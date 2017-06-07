@@ -12,38 +12,40 @@ import java.util.Set;
 @RequestMapping("/actions")
 public class ActionController {
 
-    private final ActionRepository repository;
+    private final StageRepository stageRepository;
+    private final ActionRepository actionRepository;
 
-    public ActionController(ActionRepository repository) {
-        this.repository = repository;
+    public ActionController(ActionRepository actionRepository, StageRepository stageRepository) {
+        this.actionRepository = actionRepository;
+        this.stageRepository = stageRepository;
     }
 
     @GetMapping("")
     public Iterable<Action> all() {
-        return this.repository.findAll();
+        return this.actionRepository.findAll();
     }
 
     @GetMapping("/{id}")
     public Action getActionById(@PathVariable Long id) {
-        return this.repository.findOne(id);
+        return this.actionRepository.findOne(id);
     }
 
     @GetMapping("/user/{id}")
     public Set<Action> getActionsByUserId(@PathVariable Integer id) {
-        return this.repository.findByUserId(id);
+        return this.actionRepository.findByUserId(id);
     }
 
     @PostMapping("")
     public Action create(@RequestBody Action action) {
-        return this.repository.save(action);
+        return this.actionRepository.save(action);
     }
 
     @PatchMapping("/{id}")
     public Action update(@RequestBody Action action, @PathVariable Long id) {
-        Action existingAction = this.repository.findOne(id);
+        Action existingAction = this.actionRepository.findOne(id);
         existingAction.setActive(action.isActive());
         existingAction.setComplete(action.isComplete());
-        return this.repository.save(existingAction);
+        return this.actionRepository.save(existingAction);
     }
 
 }

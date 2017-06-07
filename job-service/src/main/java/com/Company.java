@@ -1,12 +1,8 @@
 package com;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -34,13 +30,10 @@ public class Company {
             inverseJoinColumns = @JoinColumn(name = "contact_id"))
     private Set<Contact> contacts;
 
-
     private String name;
     private String city;
-    private String url;
     private String state;
     private String note;
-
 
     public Long getId() {return id;}
 
@@ -65,16 +58,6 @@ public class Company {
     public void setCity(String city) {
         this.city = city;
     }
-
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
 
     public String getNote() {
         return note;
