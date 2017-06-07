@@ -28,6 +28,11 @@ public class ApplicationController {
         return this.repository.findOne(id);
     }
 
+    @GetMapping("user/{id}")
+    public Iterable<Application> getApplicationsByUserId(@PathVariable Long id) {
+        return this.repository.findByUserId(id);
+    }
+
     @GetMapping("/{id}/stages")
     public Set<Stage> getApplicationStagesById(@PathVariable Long id) {
         return this.repository.findOne(id).getStages();
@@ -35,10 +40,8 @@ public class ApplicationController {
 
     @PatchMapping("/{id}")
     public Application update(@RequestBody Application application, @PathVariable Long id) {
-        System.out.println("UPDATE APP!!!!!" + id);
         Application app = this.repository.findOne(id);
 
-        System.out.println("APPPP!!!!!" + app);
         if (application.getNotes() != null) {
             app.setNotes(application.getNotes());
         }
