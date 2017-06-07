@@ -11,18 +11,15 @@
       // get all users, map over that list of users, call get all applications by user for each user in that list of users
 
       const allUsersURL = 'https://job-tracker-user-service.herokuapp.com/users'
-      const applicationsURL = 'https://job-tracker-apps-service.herokuapp.com/'
+      const allApplicationsURL = 'https://job-tracker-apps-service.herokuapp.com/applications'
 
       //get all applications -> wrangles data into useable format
-      return $http.get(applicationsURL)
+      return Promise.all([$http.get(allUsersURL), $http.get('allApplicationsURL')])
         .then((response) => {
-          return response.data
+          console.log('inside analytics service', response)
+          return response
         })
         .catch((err) => console.error(err))
-    }
-
-    vm.renderApplicationChart = function(){
-
     }
 
   }

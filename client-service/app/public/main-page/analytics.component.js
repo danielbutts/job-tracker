@@ -9,10 +9,19 @@
   function analyticsController(analayticsService){
     const vm = this
 
-    analayticsService.getApplicationData()
-      .then((response) => {
-        vm.applications = response.data
-      })
-  }
+    vm.$onInit = function(){
 
+      analayticsService.getApplicationData()
+        .then((response) => {
+          console.log('data from analytics service!',response.data)
+          //set the chart.js variables in here
+            // vm.date = ; vm.labels =
+
+          vm.applications = response.data
+        })
+        .catch((err) => console.error(err))
+    }
+
+
+  }
 })()
