@@ -6,8 +6,8 @@
       controller: userController,
     })
 
-  userController.$inject = ['userService', '$window']
-  function userController(userService, $window){
+  userController.$inject = ['userService', '$window', '$cookies']
+  function userController(userService, $window, $cookies){
     const vm = this
 
     vm.login = function(e){
@@ -17,7 +17,12 @@
       userService.login(user)
         .then((response) => {
           if(response.data.id){
-            userService.userId = response.data.id
+            const id = response.data.id
+
+            $cookies.put('id', id)
+
+            // $cookies.get('id')
+
             $window.location.href = `/`
           }
         })

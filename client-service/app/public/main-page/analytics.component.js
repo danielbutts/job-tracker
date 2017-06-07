@@ -5,11 +5,13 @@
       controller: analyticsController,
     })
 
-  analyticsController.$inject = ['analayticsService', '$location']
-  function analyticsController(analayticsService, $location){
+  analyticsController.$inject = ['analayticsService', '$cookies']
+  function analyticsController(analayticsService, $cookies){
     const vm = this
 
     vm.$onInit = function(){
+
+      console.log($cookies.get('id'))
 
       analayticsService.getApplicationData()
         .then((response) => {
