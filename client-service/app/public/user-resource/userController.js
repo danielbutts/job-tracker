@@ -6,8 +6,8 @@
       controller: userController,
     })
 
-  userController.$inject = ['userService']
-  function userController(userService){
+  userController.$inject = ['userService', '$window']
+  function userController(userService, $window){
     const vm = this
 
     vm.login = function(e){
@@ -15,6 +15,12 @@
       const user = {username: vm.user.username, password: vm.user.password}
 
       userService.login(user)
+        .then((response) => {
+          if(response.data.id){
+            userService.userId = response.data.id
+            $window.location.href = `/`
+          }
+        })
         .catch((err) => console.error(err))
 
       delete vm.user
