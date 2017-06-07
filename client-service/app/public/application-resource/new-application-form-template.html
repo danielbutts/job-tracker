@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-8">
+
+    COMPANIES- {{$ctrl.companies}}
+    TEST- {{$ctrl.test}}
+    <form ng-submit="$ctrl.create()">
+      <div>
+        <label for="title">Title</label>
+        <input id="title" class="form-control" ng-model="$ctrl.application.title">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+          Add Job
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

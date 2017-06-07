@@ -26,7 +26,6 @@ public class StageController {
 
     @GetMapping("/{id}")
     public Stage getStageById(@PathVariable Long id) {
-        System.out.println("HERE!!!!!!!! " + id);
         return this.repository.findOne(id);
     }
 
