@@ -1,13 +1,17 @@
 <div class="container col-md-6">
-
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title">Actions</h3>
-  </div>
-  <div class="panel-body">
-    <div ng-repeat="action in $ctrl.actions">
-      {{action}}
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title">Actions</h2>
     </div>
+        <ul class="list-group" ng-repeat="action in $ctrl.actions">
+          <li class="list-group-item text-left panel-body"  ng-if="action.active && !action.complete">
+              {{action.message}}
+              {{action.id}}
+            <a class="pull-right glyphicon glyphicon-remove clickable_space" ng-click="$ctrl.updateAction(action,'active',action.id)" href="#"></a>
+            <a class="pull-right glyphicon glyphicon-ok clickable_space" ng-click="$ctrl.updateAction(action,'complete',action.id)" href="#"></a>
+          </li>
+        </ul>
   </div>
-</div>
+
+  </div>
 </div>

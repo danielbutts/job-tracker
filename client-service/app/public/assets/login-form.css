@@ -1,8 +1,5 @@
 /*Designed by: Deepak Bisht at https://bootsnipp.com/snippets/QXpo5 */
 
-@font-face {
-    font-family: 'Raleway', sans-serif;
-}
 /* CSS reset */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
 	margin:0;
@@ -45,7 +42,6 @@ footer, header, hgroup, menu, nav, section {
 }
 /* General Demo Style */
 body{
-	font-family: Cambria, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
 	background: #fff url(../images/bg.jpg) repeat top left;
 	font-weight: 400;
 	font-size: 15px;
@@ -284,6 +280,7 @@ input {
 [data-icon]:after {
     content: attr(data-icon);
     font-family: 'FontomasCustomRegular';
+
     color: rgb(106, 159, 171);
     position: absolute;
     left: 10px;
