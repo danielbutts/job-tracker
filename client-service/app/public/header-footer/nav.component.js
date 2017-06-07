@@ -6,14 +6,14 @@
     })
 
   navController.$inject = ['userService']
-  function navController(){
+  function navController(userService){
     const vm = this
 
     vm.loggedIn = true
 
     vm.logout = function(){
       vm.loggedIn = false
-      
+
       userService.logout()
         .catch((err) => console.error(err))
     }

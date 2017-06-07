@@ -55,7 +55,7 @@ HTTP GET localhost:0000/contacts
 
 #### PATCH Request
 
-  `curl -i -X PATCH -H 'Content-Type: application/json' -d '{"isActive": false}' localhost:8080/actions/76`
+  `curl -i -X PATCH -H 'Content-Type: application/json' -d '{"active": true}' https://job-tracker-apps-service.herokuapp.com/actions/1`
 
    or
 
