@@ -10,6 +10,7 @@ import java.util.Set;
  */
 
 @RestController
+@CrossOrigin
 @RequestMapping("/stages")
 public class StageController {
 

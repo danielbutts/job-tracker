@@ -9,6 +9,7 @@ import java.util.Set;
  */
 
 @RestController
+@CrossOrigin
 @RequestMapping("/applications")
 public class ApplicationController {
 
