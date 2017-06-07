@@ -20,8 +20,6 @@ public class Company {
     private Long id;
 
 
-
-
     @OneToMany
     @JoinTable(name="company_job",
             joinColumns = @JoinColumn(name = "company_id"),
@@ -34,7 +32,7 @@ public class Company {
     @JoinTable(name="company_contact",
             joinColumns = @JoinColumn(name = "company_id"),
             inverseJoinColumns = @JoinColumn(name = "contact_id"))
-    private Set<Contact> contact;
+    private Set<Contact> contacts;
 
 
     private String name;
@@ -106,10 +104,10 @@ public class Company {
 
 
     public Set<Contact> getContact() {
-        return contact;
+        return contacts;
     }
 
     public void setContact(Set<Contact> contact) {
-        this.contact = contact;
+        this.contacts = contact;
     }
 }
