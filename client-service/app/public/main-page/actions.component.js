@@ -2,11 +2,18 @@
   angular.module('app')
     .component('actions', {
       templateUrl: './main-page/actions.template.html',
-      controller: mainController,
+      controller: controller,
     })
+    controller.$inject = ['actionsService']
 
-  function mainController(){
+  function controller(actionsService){
     const vm = this
+    vm.actions = []
+
+  vm.$onInit = function () {
+    vm.actions = actionsService.getActions()
+
+    }
 
   }
 

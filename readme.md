@@ -51,6 +51,8 @@ HTTP GET localhost:0000/contacts
 #### POST Request
   `curl -i -X POST -H 'Content-Type: application/json' -d '{"createDate": "2017-06-05 05:44:26.718", "activeDate": "2017-06-05 05:44:26.718", "applicationId": 1, "isActive": true, "isComplete": false, "message": "Congratulations on getting a phone screen. Be sure to follow up with Jeff Besos by 6/5/17.", "userId":1}' localhost:8080/actions`
 
+  `curl -i -X POST -H 'Content-Type: application/json' -d '{"createDate": "2017-07-05 05:44:26.718", "activeDate": "2017-07-05 05:44:26.718", "applicationId": 2, "isActive": true, "isComplete": false, "message": "Congratulations on slaying the interview. Be sure to follow up with Samantha nerds by 10/5/17.", "userId":1}' localhost:8080/actions`
+
 #### PATCH Request
 
   `curl -i -X PATCH -H 'Content-Type: application/json' -d '{"isActive": false}' localhost:8080/actions/76`
