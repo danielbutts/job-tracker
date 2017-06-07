@@ -60,3 +60,14 @@ HTTP GET localhost:0000/contacts
    or
 
   `curl -i -X PATCH -H 'Content-Type: application/json' -d '{"isComplete": true}' localhost:8080/actions76`
+
+
+
+
+# Applications
+
+#### GET Request
+    HTTP GET localhost:0000/applications
+
+#### POST Request
+  `curl -i -X POST -H 'Content-Type: application/json' -d '{"job_id": 1, "user_id": 1, "notes": "Saw a posting for a software development intern. I have friend that works there. Company is building Uber-for-umbrellas.", "stages": [{"contact_id": 1, "stage_type": 2}] }' https://job-tracker-apps-service.herokuapp.com/applications`
