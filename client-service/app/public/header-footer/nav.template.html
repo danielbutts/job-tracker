@@ -3,22 +3,23 @@
   <a class="navbar-brand" href="#">Job Tracker</a>
 
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav row">
-      <div class="col-xs-12">
+    <ul class="navbar-nav">
+      <div class="row">
+        <div class="col-xs-12">
 
-        <div class="col-xs-3">
+        <div class="col-xs-4">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
         </div>
 
-        <div class="col-xs-3 ng-hide" ng-show="!$ctrl.loggedIn">
+        <div class="col-xs-4 ng-hide" ng-show="!$ctrl.loggedIn">
           <li class="nav-item active">
             <a class="nav-link btn btn-success" ui-sref="/login" ng-click="">login</a>
           </li>
         </div>
 
-        <div class="col-xs-3 ng-hide" ng-show="$ctrl.loggedIn">
+        <div class="col-xs-4 ng-hide" ng-show="$ctrl.loggedIn">
           <li class="nav-item active">
             <a class="nav-link btn btn-danger" ng-click="$ctrl.logout()">Logout</a>
           </li>
@@ -30,6 +31,7 @@
           </button>
         </div> -->
 
+        </div>
       </div>
     </ul>
   </div>
