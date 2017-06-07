@@ -2,12 +2,14 @@
   angular.module('app')
     .component('analytics', {
       templateUrl: './main-page/analytics.template.html',
-      controller: mainController,
+      controller: analyticsController,
     })
 
-  function mainController(){
+  analyticsController.$inject = ['analayticsService']
+  function analyticsController(analayticsService){
     const vm = this
 
+    analayticsService.getApplicationData()
   }
 
 })()

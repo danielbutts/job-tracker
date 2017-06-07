@@ -17,12 +17,12 @@
     }
 
     vm.register = function(newUser){
-      const userUrl = `http://localhost:8080/users`
+      const userUrl = `http://localhost:8082/users`
       return $http.post(userUrl, newUser)
     }
 
     vm.getUsers = function(){
-      const userUrl = 'http://localhost:8080/users'
+      const userUrl = 'http://localhost:8082/users'
       return $http.get(userUrl)
     }
 
