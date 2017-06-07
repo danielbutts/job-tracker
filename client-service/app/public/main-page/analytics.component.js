@@ -10,6 +10,9 @@
     const vm = this
 
     analayticsService.getApplicationData()
+      .then((response) => {
+        vm.applications = response.data
+      })
   }
 
 })()

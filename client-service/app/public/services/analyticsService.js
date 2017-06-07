@@ -12,7 +12,9 @@
 
       //get all applications
       return $http.get(appEndPoint)
-        .then((response) => console.log(response))
+        .then((response) => {
+          return response.data
+        })
         .catch((err) => console.error(err))
     }
 
