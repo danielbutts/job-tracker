@@ -14,7 +14,6 @@
       $http.get(`http://localhost:8081/companies`).then(function (response) {
         console.log(response.data);
         vm.companies = response.data
-        vm.test = 'timmy'
       })
       .catch(err => {
         console.log(err);

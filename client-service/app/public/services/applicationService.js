@@ -25,6 +25,6 @@
       const url = `${process.env.APPLICATION_SERVICE_URL}/applications/${appId}`
       return $http.patch(url, application)
     }
-    
+
   }
 }())
