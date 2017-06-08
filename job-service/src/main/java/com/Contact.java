@@ -16,7 +16,7 @@ public class Contact {
 
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(name="company_contact",
             joinColumns = @JoinColumn(name = "contact_id"),
             inverseJoinColumns = @JoinColumn(name = "company_id"))
@@ -24,9 +24,9 @@ public class Contact {
     private Company company;
 
     private String note;
-    private String phone_number;
-    private String first_name;
-    private String last_name;
+    private String phone;
+    private String firstName;
+    private String lastName;
     private String title;
     private String email;
 
@@ -39,23 +39,6 @@ public class Contact {
         this.id = id;
     }
 
-
-    public String getFirst_name() {
-        return first_name;
-    }
-
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
 
 
     public String getTitle() {
@@ -84,15 +67,29 @@ public class Contact {
         this.note = note;
     }
 
-
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public Company getCompany() {
         return company;

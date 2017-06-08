@@ -13,12 +13,10 @@ import java.util.Set;
 @RequestMapping("/actions")
 public class ActionController {
 
-    private final StageRepository stageRepository;
     private final ActionRepository actionRepository;
 
-    public ActionController(ActionRepository actionRepository, StageRepository stageRepository) {
+    public ActionController(ActionRepository actionRepository) {
         this.actionRepository = actionRepository;
-        this.stageRepository = stageRepository;
     }
 
     @GetMapping("")
