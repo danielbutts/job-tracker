@@ -26,10 +26,13 @@ HTTP GET https://job-tracker-job-service.herokuapp.com/:id
 HTTP GET https://job-tracker-job-service.herokuapp.com/companies
 
 #### POST Request
-  `curl -i -X POST -H 'Content-Type: application/json' -d '{"name": "nyTimes", "city": "New York", "state": "NY", "note": "It be a cool company", "url": "nytimes.com"}' https://job-tracker-job-service.herokuapp.com/companies`
+  curl -i -X POST -H 'Content-Type: application/json' -d '{ "name": "Google", "city": "Seattle", "state": "WA", "note": "They own the universe", "jobs": [{"description":"looking for someone who works with Nodejs, JavaScript and Knex ", "title":"Web Dev", "url":"https://google.com"}] }' https://job-tracker-job-service.herokuapp.com/companies
 
-  `curl -i -X POST -H 'Content-Type: application/json' -d '{"name": "CNN", "city": "Fake News", "state": "TX", "note": "It be a cool company", "url": "CNN.com"}' https://job-tracker-job-service.herokuapp.com/companies`
+  curl -i -X POST -H 'Content-Type: application/json' -d '{ "name": "PackageIt", "city": "Seattle", "state": "WA", "note": "oriented around providing users with go to market package solutions", "jobs": [{"description":"Testing oriented, detail oriented and a desire to fix the big problems", "title":"QA Tester", "url":"packageit.com"}] }' https://job-tracker-job-service.herokuapp.com/companies
 
+  curl -i -X POST -H 'Content-Type: application/json' -d '{ "name": "GroupOn", "city": "Seattle", "state": "WA", "note": "Group Coupon app that allows users to save money by teaming up together", "jobs": [{"description":"looking for someone who works with Java primarily and Spring", "title":"Backend Software engineer", "url":"https://groupon.com"}] }' https://job-tracker-job-service.herokuapp.com/companies
+
+  curl -i -X POST -H 'Content-Type: application/json' -d '{ "name": "Facebook", "city": "Seattle", "state": "WA", "note": "Social networking app that has been a global phenominon", "jobs": [{"description":"looking for someone who works with Nodejs, JavaScript and Knex ", "title":"Web Dev supervisor", "url":"https://facebook.com"}] }' https://job-tracker-job-service.herokuapp.com/companies
 
 # Contacts
 
