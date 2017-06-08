@@ -3,7 +3,7 @@
 
   angular.module('app')
   .constant('APPLICATION_SERVICE_URL', 'https://job-tracker-apps-service.herokuapp.com')
-  .constant('JOB_SERVICE_URL', 'http://localhost:8081')
+  .constant('JOB_SERVICE_URL', 'https://job-tracker-job-service.herokuapp.com')
   .constant('USER_SERVICE_URL', 'https://job-tracker-user-service.herokuapp.com')
   .config(config)
 

@@ -6,8 +6,8 @@
       controller: applicationController,
     })
 
-  applicationController.$inject = ['applicationService', '$http', 'JOB_SERVICE_URL']
-  function applicationController(applicationService, $http, JOB_SERVICE_URL){
+  applicationController.$inject = ['applicationService', '$http', 'JOB_SERVICE_URL', 'APPLICATION_SERVICE_URL']
+  function applicationController(applicationService, $http, JOB_SERVICE_URL, APPLICATION_SERVICE_URL){
     const vm = this
 
     vm.$onInit = function () {
@@ -15,6 +15,9 @@
         vm.companies = response.data
         $http.get(`${JOB_SERVICE_URL}/jobs`).then(function (response) {
           vm.jobs = response.data
+          $http.get(`${APPLICATION_SERVICE_URL}/stages/types`).then(function (response) {
+            vm.stageTypes = response.data
+          })
         })
       })
       .catch(err => {
