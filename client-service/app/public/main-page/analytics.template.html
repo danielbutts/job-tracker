@@ -7,11 +7,13 @@
 
       <!-- Applications over time chart -->
         <!-- chart-series="$ctrl.series" -->
-
-      <canvas id="line" class="chart chart-line" chart-data="$ctrl.data"
-      chart-labels="$ctrl.labels" chart-options="$ctrl.options"
-      chart-dataset-override="$ctrl.datasetOverride" chart-click="onClick" width="500px" height="500px">
-      </canvas>
+        <!-- chart-click="onClick" -->
+      <!-- <div ng-if="$ctrl.chartLoad"> -->
+        <canvas id="line" class="chart chart-line" chart-data="$ctrl.data"
+        chart-labels="$ctrl.labels" chart-options="$ctrl.options"
+        chart-dataset-override="$ctrl.datasetOverride">
+        </canvas>
+      <!-- </div> -->
 
     </div>
   </div>

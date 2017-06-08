@@ -32,3 +32,10 @@ html {
   transform: scale(1.03);
   border: 1px solid grey
 }
+
+
+/*CHART COMPONENT*/
+#line {
+  width: 500px;
+  height: 500px;
+}
