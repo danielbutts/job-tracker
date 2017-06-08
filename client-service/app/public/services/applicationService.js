@@ -7,12 +7,12 @@
     const vm = this
 
     vm.getAllApplicationsForUser = function(userId){
-      const url = `${APPLICATION_SERVICE_URL}/applications/${userId}`
+      const url = `${APPLICATION_SERVICE_URL}/applications/user/${userId}`
       return $http.get(url)
     }
 
-    vm.getApplication = function(userId){
-      const url = `${APPLICATION_SERVICE_URL}/applications/user/${userId}`
+    vm.getApplication = function(appId){
+      const url = `${APPLICATION_SERVICE_URL}/applications/${appId}`
       return $http.get(url)
     }
 
