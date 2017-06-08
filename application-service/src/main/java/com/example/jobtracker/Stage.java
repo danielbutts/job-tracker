@@ -18,7 +18,7 @@ public class Stage {
     private Integer contactId;
     private StageType stageType;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(name="application_stage",
             joinColumns = @JoinColumn(name = "stage_id"),
             inverseJoinColumns = @JoinColumn(name = "application_id"))
@@ -57,10 +57,6 @@ public class Stage {
     public void setStageType(StageType stageType) {
         this.stageType = stageType;
     }
-
-//    public void setStageType(Integer stage_type_id) {
-//        this.stageType = StageType.getById(stage_type_id);
-//    }
 
     public enum StageType {
         closed(-1),

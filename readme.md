@@ -7,17 +7,17 @@ job tracking app for anyone in the market.
 # Jobs
 
 #### GET Request
-HTTP GET localhost:0000/jobs
+HTTP GET https://job-tracker-job-service.herokuapp.com/jobs
 
-HTTP GET localhost:0000/:id
+HTTP GET https://job-tracker-job-service.herokuapp.com/:id
 
 #### POST Request
-  `curl -i -X POST -H 'Content-Type: application/json' -d '{"title": "taco maker", "url": "www.google.com", "description": "Saw a posting for a software development intern. I have friend that works there. Company is building Uber-for-umbrellas.", "company":{"id":"43","name": "CNN", "city": "Fake News", "state": "TX", "note": "It be a cool company", "url": "CNN.com"} }' localhost:8080/jobs`
+  `curl -i -X POST -H 'Content-Type: application/json' -d '{"title": "taco maker", "url": "www.google.com", "description": "Saw a posting for a software development intern. I have friend that works there. Company is building Uber-for-umbrellas.", "company":{"id":"43","name": "CNN", "city": "Fake News", "state": "TX", "note": "It be a cool company", "url": "CNN.com"} }' https://job-tracker-job-service.herokuapp.com/jobs`
 
-  `curl -i -X POST -H 'Content-Type: application/json' -d '{"title": "taco maker", "url": "www.google.com", "description": "Saw a posting for a software development intern. I have friend that works there. Company is building Uber-for-umbrellas.", "company":{"id":"43","name": "CNN", "city": "Fake News", "state": "TX", "note": "It be a cool company", "url": "CNN.com"}}' localhost:8080/jobs`
+  `curl -i -X POST -H 'Content-Type: application/json' -d '{"title": "taco maker", "url": "www.google.com", "description": "Saw a posting for a software development intern. I have friend that works there. Company is building Uber-for-umbrellas.", "company":{"id":"43","name": "CNN", "city": "Fake News", "state": "TX", "note": "It be a cool company", "url": "CNN.com"}}' https://job-tracker-job-service.herokuapp.com/jobs`
 
 #### PATCH Request
-  `curl -i -X PATCH -H 'Content-Type: application/json' -d '{"title": "taco maker", "url": "www.google.com", "description": "Saw a posting for a software development intern. I have friend that works there. Company is building Uber-for-umbrellas."}' localhost:8080/jobs/45`
+  `curl -i -X PATCH -H 'Content-Type: application/json' -d '{"title": "taco maker", "url": "www.google.com", "description": "Saw a posting for a software development intern. I have friend that works there. Company is building Uber-for-umbrellas."}' https://job-tracker-job-service.herokuapp.com/jobs/45`
 
 
 # Companies
@@ -49,9 +49,9 @@ HTTP GET localhost:0000/contacts
   HTTP GET localhost:0000/actions
 
 #### POST Request
-  `curl -i -X POST -H 'Content-Type: application/json' -d '{"createDate": "2017-06-05 05:44:26.718", "activeDate": "2017-06-05 05:44:26.718", "applicationId": 1, "isActive": true, "isComplete": false, "message": "Congratulations on getting a phone screen. Be sure to follow up with Jeff Besos by 6/5/17.", "userId":1}' localhost:8080/actions`
+  `curl -i -X POST -H 'Content-Type: application/json' -d '{"createDate": "2017-06-05 05:44:26.718", "activeDate": "2017-06-05 05:44:26.718", "applicationId": 1, "active": true, "complete": false, "message": "Congratulations on getting a phone screen. Be sure to follow up with Jeff Besos by 6/5/17.", "userId":1}' https://job-tracker-apps-service.herokuapp.com/actions`
 
-  `curl -i -X POST -H 'Content-Type: application/json' -d '{"createDate": "2017-07-05 05:44:26.718", "activeDate": "2017-07-05 05:44:26.718", "applicationId": 2, "isActive": true, "isComplete": false, "message": "Congratulations on slaying the interview. Be sure to follow up with Samantha nerds by 10/5/17.", "userId":1}' localhost:8080/actions`
+  `curl -i -X POST -H 'Content-Type: application/json' -d '{"createDate": "2017-07-05 05:44:26.718", "activeDate": "2017-07-05 05:44:26.718", "applicationId": 2, "isActive": true, "isComplete": false, "message": "Congratulations on slaying the interview. Be sure to follow up with Samantha nerds by 10/5/17.", "userId":1}' https://job-tracker-apps-service.herokuapp.com/actions`
 
 #### PATCH Request
 

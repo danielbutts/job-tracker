@@ -12,10 +12,8 @@
 
     vm.$onInit = function () {
       $http.get(`${JOB_SERVICE_URL}/companies`).then(function (response) {
-        console.log(response.data);
         vm.companies = response.data
         $http.get(`${JOB_SERVICE_URL}/jobs`).then(function (response) {
-          console.log(response.data);
           vm.jobs = response.data
         })
       })
@@ -24,34 +22,72 @@
       })
     }
 
-    vm.create = function(e){
-      e.preventDefault()
-
+    vm.create = function(){
       const {title, companyName, city, state, url, description} = vm.application
       const userId = 1
 
+      let existingJob = false;
+      let existingCompany = false;
+
       let company;
       let newJob;
+console.log('HERE');
       vm.jobs.forEach((job) => {
+        console.log('THERE');
+
+        console.log('JOB-',job.url, url);
         if (url === job.url) {
           newJob = job;
+          existingJob = true;
           console.log(`Job Found ${job.id}`);
 
           if (job.company !== undefined) {
             company = job.company
+            existingCompany = true;
             console.log(`Company Found ${job.company}`);
+          } else {
+            console.log('Company not a match- ', job.company);
+            vm.companies.forEach((el) => {
+              if (companyName === el.name) {
+                existingCompany = true;
+                company = el;
+              }
+            })
           }
+        } else {
+          console.log('Job not a match- ', url, job.url);
         }
       })
 
-      if (company === undefined) {
+      if (!existingCompany) {
         company = {
           name: companyName,
           city: city,
           state: state
         };
+      }
+      if (!existingJob) {
+        newJob = {
+          title: title,
+          url: url,
+          description: description,
+          company: company
+        };
+      }
 
-        $http.post(`${JOB_SERVICE_URL}/companies`, company).then(function (response) {
+
+      if (existingJob) {
+        console.log(existingJob, newJob.id,  '$http.patch(`${JOB_SERVICE_URL}/jobs`');
+        $http.patch(`${JOB_SERVICE_URL}/jobs/${newJob.id}`, newJob).then(function (response) {
+          console.log(response.data);
+          // vm.editArticle = response.data
+        })
+        .catch(err => {
+          console.log(err);
+        })
+      } else {
+        console.log(existingJob, '$http.post(`${JOB_SERVICE_URL}/jobs`');
+        $http.post(`${JOB_SERVICE_URL}/jobs`, newJob).then(function (response) {
           console.log(response.data);
           // vm.editArticle = response.data
         })
@@ -60,38 +96,5 @@
         })
       }
     }
-
-    // vm.companies.forEach((el) => {
-    //   if (companyName === el.name) {
-    //     companyId = el.id;
-    //   }
-    // })
-
-    // if (companyId === undefined) {
-    //   let company = {
-    //     name: companyName,
-    //     city: city,
-    //     state: state
-    //   };
-
-
-    // } else {
-    //   $http.get(`${JOB_SERVICE_URL}/companies/${companyId}`).then(function (response) {
-    //     console.log(response.data);
-    //     // vm.editArticle = response.data
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   })
-    // }
-    //
-    // const application = {
-    //   companyId: vm.application.companyId,
-    //   title: vm.application.title,
-    //   userId: userId,
-    //
-    //
-    // }
-
   }
 }())

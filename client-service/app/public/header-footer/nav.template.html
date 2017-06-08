@@ -2,18 +2,17 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Job Tracker</a>
+      <a class="navbar-brand" ui-sref="homePage">Job Tracker</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-toggler-right" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a ui-sref="homePage">Home</a></li>
-        <li><a href="#">New Job</a></li>
-        <li class="nav-item active" ng-show="!$ctrl.loggedIn">
+        <li><a ui-sref="application">New Job</a></li>
+        <li class="nav-item active pull-right" ng-show="!$ctrl.loggedIn">
           <a class="nav-link btn btn-success" ui-sref="loginPage">login</a>
         </li>
-        <li class="nav-item active" ng-show="$ctrl.loggedIn">
+        <li class="nav-item active pull-right" ng-show="$ctrl.loggedIn">
           <a class="nav-link btn btn-warn" ng-click="$ctrl.logout()">Logout</a>
         </li>
       </ul>
