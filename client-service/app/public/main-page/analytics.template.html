@@ -5,12 +5,14 @@
     </div>
     <div class="panel-body">
 
-      <canvas value="analyticsChart" id="analyticsChart" width="400" height="400"></canvas>
+      <!-- Applications over time chart -->
+        <!-- chart-series="$ctrl.series" -->
 
-      <div ng-repeat="application in $ctrl.applications">
-        {{application.notes}}
-      </div>
-      Panel content
+      <canvas id="line" class="chart chart-line" chart-data="$ctrl.data"
+      chart-labels="$ctrl.labels" chart-options="$ctrl.options"
+      chart-dataset-override="$ctrl.datasetOverride" chart-click="onClick" width="500px" height="500px">
+      </canvas>
+
     </div>
   </div>
 </div>
