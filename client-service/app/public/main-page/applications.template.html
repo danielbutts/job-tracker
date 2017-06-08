@@ -5,7 +5,7 @@
     </div>
     <ul class="list-group" ng-repeat="application in $ctrl.applications">
       <li class="list-group-item text-left panel-body" ng-class="mouseHover" ng-mouseover="mouseHover='active-hover'"
-ng-mouseleave="mouseHover=''"  ng-if="action.active && !action.complete">
+ng-mouseleave="mouseHover=''" >
           {{application.title}}
           {{application.id}}
         <a class="pull-right glyphicon glyphicon-remove clickable_space" ng-click="$ctrl.updateAction(action,'active',action.id)" href="#"></a>

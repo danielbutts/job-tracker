@@ -14,7 +14,7 @@ HTTP GET https://job-tracker-job-service.herokuapp.com/:id
 #### POST Request
   `curl -i -X POST -H 'Content-Type: application/json' -d '{"title": "taco maker", "url": "www.google.com", "description": "Saw a posting for a software development intern. I have friend that works there. Company is building Uber-for-umbrellas.", "company":{"id":"43","name": "CNN", "city": "Fake News", "state": "TX", "note": "It be a cool company", "url": "CNN.com"} }' https://job-tracker-job-service.herokuapp.com/jobs`
 
-  `curl -i -X POST -H 'Content-Type: application/json' -d '{"title": "taco maker", "url": "www.google.com", "description": "Saw a posting for a software development intern. I have friend that works there. Company is building Uber-for-umbrellas.", "company":{"id":"43","name": "CNN", "city": "Fake News", "state": "TX", "note": "It be a cool company", "url": "CNN.com"}}' https://job-tracker-job-service.herokuapp.com/jobs`
+  `curl -i -X POST -H 'Content-Type: application/json' -d '{"title": "Software Engineer", "url": "www.google.com", "description": "Saw a posting for a software development intern. I have friend that works there. Company is building Uber-for-umbrellas.", "company":{ "id": "3", "name": "nyTimes", "city": "New York", "state": "NY", "note": "It be a cool company", "url": "nytimes.com"}}' https://job-tracker-job-service.herokuapp.com/jobs`
 
 #### PATCH Request
   `curl -i -X PATCH -H 'Content-Type: application/json' -d '{"title": "taco maker", "url": "www.google.com", "description": "Saw a posting for a software development intern. I have friend that works there. Company is building Uber-for-umbrellas."}' https://job-tracker-job-service.herokuapp.com/jobs/45`
@@ -23,12 +23,12 @@ HTTP GET https://job-tracker-job-service.herokuapp.com/:id
 # Companies
 
 #### GET Request
-HTTP GET localhost:0000/companies
+HTTP GET https://job-tracker-job-service.herokuapp.com/companies
 
 #### POST Request
-  `curl -i -X POST -H 'Content-Type: application/json' -d '{"name": "nyTimes", "city": "New York", "state": "NY", "note": "It be a cool company", "url": "nytimes.com"}' localhost:8080/companies`
+  `curl -i -X POST -H 'Content-Type: application/json' -d '{"name": "nyTimes", "city": "New York", "state": "NY", "note": "It be a cool company", "url": "nytimes.com"}' https://job-tracker-job-service.herokuapp.com/companies`
 
-  `curl -i -X POST -H 'Content-Type: application/json' -d '{"name": "CNN", "city": "Fake News", "state": "TX", "note": "It be a cool company", "url": "CNN.com"}' localhost:8080/companies`
+  `curl -i -X POST -H 'Content-Type: application/json' -d '{"name": "CNN", "city": "Fake News", "state": "TX", "note": "It be a cool company", "url": "CNN.com"}' https://job-tracker-job-service.herokuapp.com/companies`
 
 
 # Contacts
@@ -59,7 +59,7 @@ HTTP GET localhost:0000/contacts
 
    or
 
-  `curl -i -X PATCH -H 'Content-Type: application/json' -d '{"isComplete": true}' localhost:8080/actions76`
+  `curl -i -X PATCH -H 'Content-Type: application/json' -d '{"complete": false}' localhost:8080/actions76`
 
 
 
@@ -71,3 +71,7 @@ HTTP GET localhost:0000/contacts
 
 #### POST Request
   `curl -i -X POST -H 'Content-Type: application/json' -d '{"job_id": 1, "user_id": 1, "notes": "Saw a posting for a software development intern. I have friend that works there. Company is building Uber-for-umbrellas.", "stages": [{"contact_id": 1, "stage_type": 2}] }' https://job-tracker-apps-service.herokuapp.com/applications`
+
+  `curl -i -X POST -H 'Content-Type: application/json' -d '{"jobId": 1, "userId": 1, "notes": "Really great app, put my lifes work into this thing", "stages": [{"contactId": 1, "stageType": 2}] }' https://job-tracker-apps-service.herokuapp.com/applications`
+
+  `curl -i -X POST -H 'Content-Type: application/json' -d '{"jobId": 1, "userId": 2, "notes": "Really great app, user 2", "stages": [{"contactId": 1, "stageType": 2}] }' https://job-tracker-apps-service.herokuapp.com/applications`
