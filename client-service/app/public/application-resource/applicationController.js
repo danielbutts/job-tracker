@@ -6,9 +6,11 @@
       controller: applicationController,
     })
 
-  applicationController.$inject = ['applicationService', '$http', 'JOB_SERVICE_URL', 'APPLICATION_SERVICE_URL']
-  function applicationController(applicationService, $http, JOB_SERVICE_URL, APPLICATION_SERVICE_URL){
+  applicationController.$inject = ['applicationService', '$http', '$cookies', 'JOB_SERVICE_URL', 'APPLICATION_SERVICE_URL']
+  function applicationController(applicationService, $http, $cookies, JOB_SERVICE_URL, APPLICATION_SERVICE_URL){
     const vm = this
+
+    const userId = $cookies.get('id')
 
     vm.$onInit = function () {
       $http.get(`${JOB_SERVICE_URL}/companies`).then(function (response) {
@@ -29,7 +31,6 @@
       const {title, companyName, city, state, url, description, notes, stage} = vm.application
       const firstName = vm.application.firstName
       const lastName = vm.application.lastName
-      const USER_ID = 1
 
       let jobExists = false;
       let companyExists = false;
@@ -54,7 +55,7 @@
       })
 
       let application = {
-        userId: USER_ID,
+        userId: userId,
         notes: notes,
         stages: [{stageType:stage}]
       }
