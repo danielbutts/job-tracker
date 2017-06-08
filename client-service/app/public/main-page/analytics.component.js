@@ -14,15 +14,22 @@
     }
 
     function renderChart(){
+
+      // if buttonClick = applications
+
       analayticsService.getApplicationData()
         .then((response) => {
           console.log('data from analytics service!',response)
           const userApps = response.userApplications
 
+          console.log(genAverage(response.averageAppsAllUsers, userApps.length))
+
           vm.labels = ["January", "February", "March", "April", "May", "June", "July"]
-          vm.data = [[65, 59, 80, 81, 56, 55, 40], [28, 48, 40, 19, 86, 27, 90]]
+          vm.data = [genAverage(response.averageAppsAllUsers, 7), [28, 48, 40, 19, 86, 27, 90]]
           vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }]
-          console.log(vm)
+
+          // [65, 59, 80, 81, 56, 55, 40]
+
           vm.options = {
             scales: {
               yAxes: [

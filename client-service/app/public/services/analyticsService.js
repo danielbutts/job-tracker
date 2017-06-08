@@ -6,14 +6,12 @@
   function analayticsService($http, $cookies){
     const vm = this
 
-    // responsible for wrangling data into useable format
-    vm.getApplicationData = function(){
+    const userId = $cookies.get('id')
+    const allUsersURL = 'https://job-tracker-user-service.herokuapp.com/users'
 
-      const userId = $cookies.get('id')
-      const allUsersURL = 'https://job-tracker-user-service.herokuapp.com/users'
+    vm.getApplicationData = function(){
       const allApplicationsURL = 'https://job-tracker-apps-service.herokuapp.com/applications'
       const allApplicationsPerUser = `https://job-tracker-apps-service.herokuapp.com/applications/user/${userId}`
-
 
       return Promise.all([$http.get(allUsersURL), $http.get(allApplicationsURL), $http.get(allApplicationsPerUser)])
         .then((response) => {
@@ -25,5 +23,15 @@
         .catch((err) => console.error(err))
     }
 
+    vm.getActionData = function(){
+      const allActions = 'https://job-tracker-apps-service.herokuapp.com/actions'
+      const allActionsPerUser = `https://job-tracker-apps-service.herokuapp.com/actions/user/${userId}`
+
+      return Promise.all([$http.get(allUsersURL), $http.get(allActions), $http.get(allActionsPerUser)])
+        .then((response) => {
+
+        })
+        .catch((err) => console.error(err))
+    }
   }
 }())
