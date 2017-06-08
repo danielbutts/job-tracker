@@ -3,6 +3,7 @@ package com.example.jobtracker;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by danielbutts on 6/3/17.
@@ -17,6 +18,8 @@ public class Stage {
     private Long id;
     private Integer contactId;
     private StageType stageType;
+    private Date date;
+    private boolean isActive;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(name="application_stage",
@@ -24,6 +27,22 @@ public class Stage {
             inverseJoinColumns = @JoinColumn(name = "application_id"))
     @JsonIgnore
     Application application;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 
     public Long getId() {
         return id;
