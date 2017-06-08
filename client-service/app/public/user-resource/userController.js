@@ -18,11 +18,7 @@
         .then((response) => {
           if(response.data.id){
             const id = response.data.id
-
             $cookies.put('id', id)
-
-            // $cookies.get('id')
-
             $window.location.href = `/`
           }
         })

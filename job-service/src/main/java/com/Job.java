@@ -1,7 +1,8 @@
 package com;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.util.Set;
 
 
 @Entity
@@ -10,14 +11,14 @@ public class Job {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "job_id")
     private Long id;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinTable(name="company_job",
             joinColumns = @JoinColumn(name = "job_id"),
             inverseJoinColumns = @JoinColumn(name = "company_id"))
+    @JsonIgnore
     private Company company;
 
     private String title;

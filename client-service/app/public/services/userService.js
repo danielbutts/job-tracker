@@ -17,14 +17,20 @@
     }
 
     vm.register = function(newUser){
-      const userUrl = `http://localhost:8082/users`
+      const userUrl = `https://job-tracker-user-service.herokuapp.com/users`
       return $http.post(userUrl, newUser)
     }
 
     vm.getUsers = function(){
-      const userUrl = 'http://localhost:8082/users'
+      const userUrl = 'https://job-tracker-user-service.herokuapp.com/users'
       return $http.get(userUrl)
     }
+
+    vm.getUserById = function(id){
+      const userUrl = `https://job-tracker-user-service.herokuapp.com/users/${id}`
+      return $http.get(userUrl)
+    }
+
 
   }
 })()

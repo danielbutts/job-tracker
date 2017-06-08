@@ -1,7 +1,5 @@
 package com;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -16,15 +14,15 @@ public class Company {
     private Long id;
 
 
-    @OneToMany
-    @JoinTable(name="company_job",
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name="company_job",
             joinColumns = @JoinColumn(name = "company_id"),
             inverseJoinColumns = @JoinColumn(name = "job_id"))
-    @JsonIgnore
-    private Set<Job> job;
+    private Set<Job> jobs;
 
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name="company_contact",
             joinColumns = @JoinColumn(name = "company_id"),
             inverseJoinColumns = @JoinColumn(name = "contact_id"))
@@ -77,20 +75,22 @@ public class Company {
     }
 
 
-    public Set<Job> getJob() {
-        return job;
+    public Set<Job> getJobs() {
+        return jobs;
     }
 
-    public void setJob(Set<Job> job) {
-        this.job = job;
+    public void setJobs(Set<Job> jobs) {
+        this.jobs = jobs;
     }
 
 
-    public Set<Contact> getContact() {
+    public Set<Contact> getContacts() {
         return contacts;
     }
 
-    public void setContact(Set<Contact> contact) {
-        this.contacts = contact;
+    public void setContacts(Set<Contact> contacts) {
+        this.contacts = contacts;
     }
+
+
 }

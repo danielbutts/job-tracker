@@ -23,19 +23,38 @@ public class ContactController {
     @GetMapping("/{id}")
     public Contact getIndividualContact(@PathVariable("id") Long id) {return this.repository.findOne(id);}
 
-//    @GetMapping("/company/{id}")
-//    public Contact getContactFromCompId( Company company,@PathVariable("id") Long id) {
-//        System.out.println(id);
-////        System.out.println(this.repository.findOne(id));
-////        if (this.repository == id) {
-//            return this.repository.Company.findOne(id);
-////        }
-//    }
-
-
     @PostMapping("")
     public Contact create(@RequestBody Contact contact) {
         return this.repository.save(contact);
     }
+
+    @PatchMapping("/{id}")
+    public Contact update(@RequestBody Contact contact, @PathVariable Long id) {
+        Contact existingContact = this.repository.findOne(id);
+        if (contact.getTitle() != null) {
+            existingContact.setTitle(contact.getTitle());
+        }
+        if (contact.getFirstName() != null) {
+            existingContact.setFirstName(contact.getFirstName());
+        }
+        if (contact.getLastName() != null) {
+            existingContact.setLastName(contact.getLastName());
+        }
+        if (contact.getPhone() != null) {
+            existingContact.setPhone(contact.getPhone());
+        }
+        if (contact.getEmail() != null) {
+            existingContact.setEmail(contact.getEmail());
+        }
+        if (contact.getNote() != null) {
+            existingContact.setNote(contact.getNote());
+        }
+        if (contact.getTitle() != null) {
+            existingContact.setTitle(contact.getTitle());
+        }
+        return this.repository.save(existingContact);
+    }
+
+
 
 }
