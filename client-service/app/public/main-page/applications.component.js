@@ -15,7 +15,7 @@
       const userId = 1
       applicationService.getAllApplicationsForUser(userId).then( response => {
         vm.applications = response.data
-        console.log('this is the array = ',vm.applications);
+        console.log('this is the array = ', response);
       })
     }
 
