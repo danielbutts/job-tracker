@@ -8,13 +8,17 @@
       <!-- Applications over time chart -->
         <!-- chart-series="$ctrl.series" -->
         <!-- chart-click="onClick" -->
-      <!-- <div ng-if="$ctrl.chartLoad"> -->
+      <div>
         <canvas id="line" class="chart chart-line" chart-data="$ctrl.data"
         chart-labels="$ctrl.labels" chart-options="$ctrl.options"
         chart-dataset-override="$ctrl.datasetOverride">
         </canvas>
-      <!-- </div> -->
+      </div>
 
+    </div>
+    <div>
+      <button class="btn btn-primary" ng-click="$ctrl.chartType = applications">Applications Chart</button>
+      <button class="btn btn-primary" ng-click="$ctrl.chartType = actions">Actions Chart</button>
     </div>
   </div>
 </div>
