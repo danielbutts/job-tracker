@@ -11,7 +11,7 @@
       return $http.get(url)
     }
 
-    vm.getApplication = function(appId){
+    vm.getApplication = function(appId) {
       const url = `${APPLICATION_SERVICE_URL}/applications/${appId}`
       return $http.get(url)
     }
@@ -24,6 +24,11 @@
     vm.updateApplication = function(appId, application) {
       const url = `${APPLICATION_SERVICE_URL}/applications/${appId}`
       return $http.patch(url, application)
+    }
+
+    vm.getJob = function (jobId) {
+      const url =`localhost:8080/jobs/${jobId}`
+      return $http.get(url)
     }
 
   }
