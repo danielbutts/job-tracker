@@ -15,8 +15,19 @@
     vm.$onInit = function () {
       const userId = $cookies.get('id')
       console.log('userId =', userId);
-      console.log('stateParams', $stateParams.id);
-      console.log('connected')
+      console.log('stateParams', $stateParams.appId);
+      console.log('stateParams', $stateParams.appTitle);
+      console.log('stateParams', );
+      vm.appTitle = $stateParams.appTitle
+      jobService.getJob($stateParams.jobId).then( job => {
+        if (job.data === "") {
+          console.log("broken job hit");
+        } else {
+          job.data.applicationId = application.id
+          vm.applications.push(job.data)
+          console.log('job data',job.data);
+         }
+      })
 
     }
 

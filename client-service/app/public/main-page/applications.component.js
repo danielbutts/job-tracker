@@ -21,7 +21,9 @@
             if (job.data === "") {
               console.log("broken job hit");
             } else {
+              job.data.applicationId = application.id
               vm.applications.push(job.data)
+              console.log('job data',job.data);
              }
           })
 
