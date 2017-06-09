@@ -13,6 +13,7 @@
 
     vm.logout = function(){
       const userLogout = `http://localhost:5000/api/auth/logout`
+      $cookies.delete('id')
       return $http.delete(userLogout)
     }
 

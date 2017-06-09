@@ -15,7 +15,7 @@
           <a class="nav-link btn btn-success" ui-sref="loginPage">login</a>
         </li>
         <li class="nav-item active" ng-show="$ctrl.loggedIn">
-          <a class="nav-link btn btn-warn" ng-click="$ctrl.logout()">Logout</a>
+          <a class="nav-link btn btn-warn" ng-click="$ctrl.logout()" ui-sref="loginPage">Logout</a>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->

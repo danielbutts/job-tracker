@@ -5,16 +5,14 @@
     </div>
     <div class="panel-body">
 
-      <!-- Applications over time chart -->
-        <!-- chart-series="$ctrl.series" -->
-        <!-- chart-click="onClick" -->
       <div style="height: $ctrl.chartHeight; width: $ctrl.chartWidth">
+        <h1 id="chart-title"><strong>{{$ctrl.chartType}}</strong></h1>
         <canvas id="line" class="chart chart-line" chart-data="$ctrl.data"
-        chart-labels="$ctrl.labels" chart-series="$ctrl.series" chart-options="$ctrl.options"
+        chart-labels="$ctrl.labels" chart-series="$ctrl.series" chart-options="$ctrl.options" chart-colors="$ctrl.colors"
         chart-dataset-override="$ctrl.datasetOverride" height="$ctrl.chartHeight" width="$ctrl.chartWidth">
         </canvas>
       </div>
-      {{$ctrl.chartHeight}} {{$ctrl.chartWidth}}
+      
     </div>
     <div>
       <button class="btn btn-primary" ng-click="$ctrl.renderApplicationChart()">Applications Chart</button>

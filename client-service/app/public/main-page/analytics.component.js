@@ -26,7 +26,7 @@
     }
 
     function renderChart(){
-      if(vm.chartType === 'applications'){
+      if(vm.chartType === 'Applications over time'){
         vm.renderApplicationChart()
       }
       else{
@@ -36,6 +36,7 @@
 
 
     vm.renderApplicationChart = function(){
+      vm.chartType = 'Applications over time'
       analayticsService.getApplicationData()
         .then((response) => {
           console.log('data from analytics service!',response)
@@ -44,6 +45,8 @@
           vm.series = ['Average','Single']
           vm.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
           vm.data = [genAverage(response.averageAppsAllUsers, 7), [4, 3, 5, 6, 2, 5, 8]]
+
+          vm.colors = ['#80b2f7', '#f45f42']
 
           vm.datasetOverride = [{ yAxisID: 'y-axis-1' }]//, { yAxisID: 'y-axis-2' }]
           vm.options = {
@@ -83,38 +86,41 @@
 
 
     vm.renderActionChart = function(){
+      vm.chartType = 'Actions over time'
       analayticsService.getActionData()
-      .then((response) => {
+        .then((response) => {
 
-        vm.series = ['Average','Yours']
-        vm.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        vm.data = [[4,4,4,4,4,4,4], [8, 2, 4, 7, 4, 6, 3]]
+          vm.series = ['Average','Yours']
+          vm.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+          vm.data = [[4,4,4,4,4,4,4], [8, 2, 4, 7, 4, 6, 3]]
 
-        vm.datasetOverride = [{ yAxisID: 'y-axis-1' }]
-        vm.options = {
-          scales: {
-            yAxes: [
-              {
-                id: 'y-axis-1',
-                type: 'linear',
-                display: true,
-                position: 'left',
-                ticks: {
-                  beginAtZero: true
-                },
-                scaleLabel: {
+          vm.colors = ['#80b2f7', '#f45f42']
+
+          vm.datasetOverride = [{ yAxisID: 'y-axis-1' }]
+          vm.options = {
+            scales: {
+              yAxes: [
+                {
+                  id: 'y-axis-1',
+                  type: 'linear',
                   display: true,
-                  labelString: 'Actions taken',
-                  fontColor: "#546372"
+                  position: 'left',
+                  ticks: {
+                    beginAtZero: true
+                  },
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Actions taken',
+                    fontColor: "#546372"
+                  }
                 }
-              }
-            ]
+              ]
+            }
           }
-        }
 
-        $scope.$digest()
-      })
-      .catch((err) => console.error(err))
-    }
+          $scope.$digest()
+        })
+        .catch((err) => console.error(err))
+      }
   }
 })()

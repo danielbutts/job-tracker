@@ -34,7 +34,11 @@ html {
 
 
 /*CHART COMPONENT*/
-#line {
+/*#line {
   width: 500px;
   height: 500px;
+}*/
+
+#chart-title {
+  font-size: 2em;
 }
