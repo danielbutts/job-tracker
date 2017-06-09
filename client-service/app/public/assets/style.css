@@ -27,7 +27,6 @@ html {
 }
 
 .footer-container {
-  /*background-color: #80b2f7;*/
   margin-bottom: 1em;
 }
 
@@ -58,7 +57,7 @@ html {
   font-size: 2em;
 }
 
-
+/*//// Panel Sizing/////*/
 .actions-panel-modify,.applications-panel-modify {
   padding-top: 4px;
   padding-bottom: 4px;
@@ -77,11 +76,15 @@ html {
   margin-bottom: 20px;
 }
 
+
+
+/*//Foooter // */
 .wrapper {
   min-height: 100%;
   margin-bottom: -50px;
 
 }
+
 #footer, .push {
   height: 50px;
 }
