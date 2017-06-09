@@ -4,7 +4,8 @@
       <h3 class="panel-title">Applications<a class="pull-right glyphicon glyphicon glyphicon-plus-sign clickable_space" ui-sref="application"></a></h3>
     </div>
     <ul class="list-group" ng-repeat="application in $ctrl.applications">
-      <li class="list-group-item text-left panel-body" ng-class="mouseHover" ng-mouseover="mouseHover='active-hover'"
+      <!-- Need to fix this!!! for tomorrow -->
+      <li ui-sref="inspectApplication({id: application.title})" class="list-group-item text-left panel-body" ng-class="mouseHover" ng-mouseover="mouseHover='active-hover'"
 ng-mouseleave="mouseHover=''" >
           {{application.title}}
         <a class="pull-right glyphicon glyphicon-remove clickable_space" ng-click="$ctrl.updateAction(action,'active',action.id)" href="#"></a>
