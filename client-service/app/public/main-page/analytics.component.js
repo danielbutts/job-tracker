@@ -10,14 +10,10 @@
     const vm = this
 
     vm.$onInit = function(){
-
-      console.log(vm.chartHeight, vm.chartWidth)
-
       vm.chartType = 'applications'
       renderChart()
     }
 
-    //potentially want to hide or display button
     vm.changeChartType = function(chartType){
       return vm.chartType = chartType
     }
@@ -39,16 +35,14 @@
 
       analayticsService.getApplicationData()
         .then((response) => {
-          console.log('data from analytics service!',response)
           const userApps = response.userApplications
 
           vm.series = ['Average','Single']
           vm.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
           vm.data = [genAverage(response.averageAppsAllUsers, 7), [4, 3, 5, 6, 2, 5, 8]]
-
           vm.colors = ['#80b2f7', '#f45f42']
-
           vm.datasetOverride = [{ yAxisID: 'y-axis-1' }]
+
           vm.options = {
             scales: {
               yAxes: [
@@ -96,10 +90,9 @@
           vm.series = ['Average','Yours']
           vm.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
           vm.data = [[4,4,4,4,4,4,4], [8, 2, 4, 7, 4, 6, 3]]
-
           vm.colors = ['#80b2f7', '#f45f42']
-
           vm.datasetOverride = [{ yAxisID: 'y-axis-1' }]
+
           vm.options = {
             scales: {
               yAxes: [
@@ -120,7 +113,6 @@
               ]
             }
           }
-
           $scope.$digest()
         })
         .catch((err) => console.error(err))
