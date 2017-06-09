@@ -57,3 +57,22 @@ html {
 #chart-title {
   font-size: 2em;
 }
+
+
+.actions-panel-modify,.applications-panel-modify {
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+}
+
+.actions-panel-container, .applications-panel-container{
+  max-width: 450px;
+}
+
+.analytics-panel-container {
+  width: 900px;
+}
+
+.analytics-button-modify {
+  margin-bottom: 20px;
+}
