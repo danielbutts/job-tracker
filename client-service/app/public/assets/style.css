@@ -76,3 +76,12 @@ html {
 .analytics-button-modify {
   margin-bottom: 20px;
 }
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -50px;
+
+}
+#footer, .push {
+  height: 50px;
+}
