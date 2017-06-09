@@ -9,8 +9,8 @@ import java.util.Set;
  */
 
 @RestController
-@CrossOrigin
 @RequestMapping("/actions")
+@CrossOrigin
 public class ActionController {
 
     private final ActionRepository actionRepository;
