@@ -10,10 +10,7 @@
     const vm = this
 
     vm.$onInit = function(){
-      vm.chartHeight = `${Math.floor($window.innerHeight * .1)}px`
-      vm.chartWidth = `${Math.floor($window.innerWidth * .2)}px`
 
-      console.log($window.innerHeight * .1,  $window.innerWidth * .2)
       console.log(vm.chartHeight, vm.chartWidth)
 
       vm.chartType = 'applications'
@@ -37,6 +34,9 @@
 
     vm.renderApplicationChart = function(){
       vm.chartType = 'Applications over time'
+      vm.chartHeight = `${Math.floor($window.innerHeight * .3)}px`
+      vm.chartWidth = `${Math.floor($window.innerWidth * .4)}px`
+
       analayticsService.getApplicationData()
         .then((response) => {
           console.log('data from analytics service!',response)
@@ -48,7 +48,7 @@
 
           vm.colors = ['#80b2f7', '#f45f42']
 
-          vm.datasetOverride = [{ yAxisID: 'y-axis-1' }]//, { yAxisID: 'y-axis-2' }]
+          vm.datasetOverride = [{ yAxisID: 'y-axis-1' }]
           vm.options = {
             scales: {
               yAxes: [
@@ -75,7 +75,7 @@
             const averageArray = []
             let i = 0
             while(i++ < length){
-              averageArray.push(average)
+              averageArray.push(Math.floor(average))
             }
             return averageArray
           }
@@ -87,6 +87,9 @@
 
     vm.renderActionChart = function(){
       vm.chartType = 'Actions over time'
+      vm.chartHeight = `${Math.floor($window.innerHeight * .1)}px`
+      vm.chartWidth = `${Math.floor($window.innerWidth * .2)}px`
+
       analayticsService.getActionData()
         .then((response) => {
 
