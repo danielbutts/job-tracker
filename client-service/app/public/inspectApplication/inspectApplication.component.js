@@ -9,6 +9,7 @@
 
   function controller(applicationService, $cookies, jobService, $stateParams){
     const vm = this
+    vm.job= ''
 
 
 
@@ -23,12 +24,10 @@
         if (job.data === "") {
           console.log("broken job hit");
         } else {
-          job.data.applicationId = application.id
-          vm.applications.push(job.data)
           console.log('job data',job.data);
+          vm.job= job.data
          }
       })
-
     }
 
   }

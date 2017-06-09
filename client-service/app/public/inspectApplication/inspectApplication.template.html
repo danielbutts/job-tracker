@@ -17,13 +17,19 @@ ng-mouseleave="mouseHover=''" >
 
   <div class="panel panel-success">
     <div class="panel-heading">
-      <h3 class="panel-title">Show</h3>
+      <h3 class="panel-title">{{$ctrl.appTitle}}</h3>
     </div>
     <div class="panel-body">
-      {{$ctrl.appTitle}}
-    </div>
 
+      <div class="pull-left col-md-12">
+      {{$ctrl.job.description}}
+      </div>
+      <div class="col-md-12">
+      <a href="{{$ctrl.job.url}}"></a>
+      </div>
+    </div>
   </div>
+  <a class="btn-success btn pull-left" ui-sref="homePage"><span class="glyphicon glyphicon-chevron-left"></span>Return to dashboard</a>
 
 
 

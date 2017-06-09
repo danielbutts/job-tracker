@@ -23,7 +23,6 @@
             } else {
               job.data.applicationId = application.id
               vm.applications.push(job.data)
-              console.log('job data',job.data);
              }
           })
 
