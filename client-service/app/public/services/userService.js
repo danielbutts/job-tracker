@@ -2,8 +2,8 @@
 
   angular.module('app').service('userService', userService)
 
-  userService.$inject = ['$http','USER_SERVICE_URL']
-  function userService($http, USER_SERVICE_URL){
+  userService.$inject = ['$http','USER_SERVICE_URL', '$cookies']
+  function userService($http, USER_SERVICE_URL, $cookies){
     const vm = this
 
     vm.login = function(user){
@@ -13,7 +13,7 @@
 
     vm.logout = function(){
       const userLogout = `/api/auth/logout`
-      $cookies.delete('id')
+      $cookies.remove('id')
       return $http.delete(userLogout)
     }
 
