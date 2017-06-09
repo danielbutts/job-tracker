@@ -1,0 +1,15 @@
+.company-details {
+  font-weight: bold;
+  color: darkblue;
+}
+
+.header {
+  font-weight: bold;
+  color: black;
+  background-color: lightyellow;
+}
+
+
+.inline {
+  display: inline-block;
+}

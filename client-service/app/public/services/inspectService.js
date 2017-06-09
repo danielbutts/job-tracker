@@ -11,19 +11,15 @@
       return $http.get(url)
     }
 
-    vm.getJob = function(jobId) {
+    vm.getAllcompanies = function() {
+      const url = `${JOB_SERVICE_URL}/companies`
+      return $http.get(url)
+    }
+
+    vm.getJob = function (jobId) {
       const url =`${JOB_SERVICE_URL}/jobs/${jobId}`
       return $http.get(url)
     }
 
-    vm.getAllCompanies = function() {
-      const url =`${JOB_SERVICE_URL}/companies`
-      return $http.get(url)      
-    }
-
-    vm.getCompanyDetail = function(companyId) {
-      const url =`${JOB_SERVICE_URL}/companies/${companyId}`
-      return $http.get(url)
-    }
   }
 }())

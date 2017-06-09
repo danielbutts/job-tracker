@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-xs-offset-2 col-md-8">
+
+    <h3>All Companies/Jobs</h3><br>
+    <div class="row" ng-repeat="company in $ctrl.companies">
+      <div class="col-xs-12">
+        <span class="company-details">{{company.name}} ({{company.city}}, {{company.state}})</span>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-xs-offset-1 col-xs-2 header text-center">
+          <h4 class="inline header">Title</h4>
+        </div>
+        <div class="col-xs-8 header text-center"></h4>
+          <h4 class="inline header">Description</h4>
+        </div>
+        <hr>
+      </div>
+      <div class="row" ng-repeat="job in company.jobs">
+        <div class="col-xs-offset-1 col-xs-2">
+          <h4 class="inline">{{job.title}}</h4>
+        </div>
+        <div class="col-xs-9"></h4>
+          <h4 class="inline">{{job.description}}</h4>
+        </div>
+      </div>
+      <br>
+    </div>
+
+</div>

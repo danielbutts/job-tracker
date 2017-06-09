@@ -1,5 +1,6 @@
 package com.example.jobtracker;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Stage {
     private Long id;
     private Integer contactId;
     private StageType stageType;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
     private Date date;
     private boolean isActive;
 

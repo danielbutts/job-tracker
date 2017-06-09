@@ -3,7 +3,7 @@
   angular.module('app').service('actionsService', actionsService)
 
   actionsService.$inject = ['$http', 'APPLICATION_SERVICE_URL']
-  function actionsService($http,APPLICATION_SERVICE_URL){
+  function actionsService($http, APPLICATION_SERVICE_URL){
     const vm = this
 
     vm.updateAction = function(keyUpdating,id) {

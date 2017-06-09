@@ -9,9 +9,10 @@
     <div class="collapse navbar-collapse navbar-toggler-right" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a ui-sref="application">New Job</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item active" ng-show="!$ctrl.loggedIn">
+        <li><a ui-sref="companies">Companies</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item active" ng-show="!$ctrl.loggedIn">
           <a class="nav-link btn btn-success" ui-sref="loginPage">login</a>
         </li>
         <li class="nav-item active" ng-show="$ctrl.loggedIn">
