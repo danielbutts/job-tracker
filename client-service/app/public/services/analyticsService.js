@@ -29,7 +29,7 @@
 
       return Promise.all([$http.get(allUsersURL), $http.get(allActions), $http.get(allActionsPerUser)])
         .then((response) => {
-
+          return response
         })
         .catch((err) => console.error(err))
     }
