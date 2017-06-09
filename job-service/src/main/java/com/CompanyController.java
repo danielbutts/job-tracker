@@ -45,17 +45,9 @@ public class CompanyController {
         if (company.getNote() != null) {
             existingCompany.setNote(company.getNote());
         }
-//        if (company.getJobs() != null) {
-//            for (Job job : company.getJobs()) {
-//                System.out.println(job.getId());
-//                System.out.println(job.getTitle());
-//                System.out.println(job.getDescription());
-//                System.out.println(job.getUrl());
-//
-//                System.out.println(this.jobRepository.save(job));
-//            }
-////            existingCompany.setJobs(company.getJobs());
-//        }
+        if (company.getJobs() != null) {
+            existingCompany.setJobs(company.getJobs());
+        }
         if (company.getContacts() != null) {
             existingCompany.setContacts(company.getContacts());
         }

@@ -6,9 +6,11 @@
       controller: applicationController,
     })
 
-  applicationController.$inject = ['applicationService', '$http', 'JOB_SERVICE_URL', 'APPLICATION_SERVICE_URL']
-  function applicationController(applicationService, $http, JOB_SERVICE_URL, APPLICATION_SERVICE_URL){
+  applicationController.$inject = ['applicationService', '$http', '$cookies', 'JOB_SERVICE_URL', 'APPLICATION_SERVICE_URL']
+  function applicationController(applicationService, $http, $cookies, JOB_SERVICE_URL, APPLICATION_SERVICE_URL){
     const vm = this
+
+    const userId = $cookies.get('id')
 
     vm.$onInit = function () {
       $http.get(`${JOB_SERVICE_URL}/companies`).then(function (response) {
@@ -26,77 +28,114 @@
     }
 
     vm.create = function(){
-      const {title, companyName, city, state, url, description} = vm.application
-      const userId = 1
+      const {title, companyName, city, state, url, description, notes, stage} = vm.application
+      const firstName = vm.application.firstName
+      const lastName = vm.application.lastName
 
-      let existingJob = false;
-      let existingCompany = false;
+      let jobExists = false;
+      let companyExists = false;
 
-      let company;
+      let newCompany;
       let newJob;
-console.log('HERE');
-      vm.jobs.forEach((job) => {
-        console.log('THERE');
 
-        console.log('JOB-',job.url, url);
-        if (url === job.url) {
-          newJob = job;
-          existingJob = true;
-          console.log(`Job Found ${job.id}`);
+      vm.companies.forEach((company) => {
+        if (company.name === companyName && company.city === city && company.state === state) {
+          companyExists = true;
+          newCompany = company;
 
-          if (job.company !== undefined) {
-            company = job.company
-            existingCompany = true;
-            console.log(`Company Found ${job.company}`);
-          } else {
-            console.log('Company not a match- ', job.company);
-            vm.companies.forEach((el) => {
-              if (companyName === el.name) {
-                existingCompany = true;
-                company = el;
+          if (company.jobs !== undefined) {
+            company.jobs.forEach((job) => {
+              if (job.url === url || (job.url === undefined && job.title === title)) {
+                jobExists = true;
+                newJob = job;
               }
             })
           }
-        } else {
-          console.log('Job not a match- ', url, job.url);
         }
       })
 
-      if (!existingCompany) {
-        company = {
-          name: companyName,
-          city: city,
-          state: state
-        };
-      }
-      if (!existingJob) {
-        newJob = {
-          title: title,
-          url: url,
-          description: description,
-          company: company
-        };
+      let application = {
+        userId: userId,
+        notes: notes,
+        stages: [{stageType:stage}]
       }
 
-
-      if (existingJob) {
-        console.log(existingJob, newJob.id,  '$http.patch(`${JOB_SERVICE_URL}/jobs`');
-        $http.patch(`${JOB_SERVICE_URL}/jobs/${newJob.id}`, newJob).then(function (response) {
+      if (jobExists && companyExists) {
+        application.jobId = newJob.id;
+        $http.post(`${APPLICATION_SERVICE_URL}/application`, application).then(function (response) {
+          console.log('Created new Application for existing Job and Company.');
           console.log(response.data);
-          // vm.editArticle = response.data
         })
         .catch(err => {
           console.log(err);
         })
       } else {
-        console.log(existingJob, '$http.post(`${JOB_SERVICE_URL}/jobs`');
-        $http.post(`${JOB_SERVICE_URL}/jobs`, newJob).then(function (response) {
-          console.log(response.data);
-          // vm.editArticle = response.data
-        })
-        .catch(err => {
-          console.log(err);
-        })
+        if (companyExists) {
+          console.log('companyExists');
+          let newJob = {
+            title: title,
+            url: url,
+            description: description,
+          }
+          let oldJobIds = []
+          if (newCompany.jobs !== undefined) {
+            console.log(`existing company had jobs`, newCompany.jobs);
+            oldJobIds = newCompany.jobs.map((job) => {
+              console.log(`Existing job id: ${job.id}`);
+              return job.id;
+            })
+          } else {
+            console.log(`existing company didn't have jobs`);
+            newCompany.jobs = [];
+          }
+          console.log(newCompany.jobs);
+          newCompany.jobs.push(newJob)
+          $http.patch(`${JOB_SERVICE_URL}/companies/${newCompany.id}`, newCompany).then(function (response) {
+            console.log('Updated Company with new Job.');
+            console.log(response.data);
+            newId = response.data.jobs.filter((job) => {
+              console.log(`job id: ${job.id}`,!oldJobIds.includes(job.id));
+              return !oldJobIds.includes(job.id)
+            })[0].id
+            console.log(newId);
+            application.jobId = newId;
+            $http.post(`${APPLICATION_SERVICE_URL}/applications`, application).then(function (response) {
+              console.log('Created new Application for new Job and existing Company.');
+              console.log(response.data);
+            })
+          })
+          .catch(err => {
+            console.log(err);
+          })
+
+        } else {
+          newJob = {
+            title: title,
+            url: url,
+            description: description
+          };
+          newCompany = {
+            name: companyName,
+            city: city,
+            state: state,
+            jobs: [newJob]
+          };
+
+          $http.post(`${JOB_SERVICE_URL}/companies`, newCompany).then(function (response) {
+            console.log('Created new Company with new Job.');
+            const jobId = response.data.jobs[0].id;
+            console.log(response.data);
+            application.jobId = jobId;
+            console.dir("APPLICATION:",application);
+            $http.post(`${APPLICATION_SERVICE_URL}/applications`, application).then(function (response) {
+              console.log('Created new Application for new Job and new Company.');
+              console.log(response.data);
+            })
+          })
+          .catch(err => {
+            console.log(err);
+          })
+        }
       }
     }
   }

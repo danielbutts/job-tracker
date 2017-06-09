@@ -79,19 +79,24 @@
           name="state"
           id="state"
           required
-          minlength="3"
+          minlength="2"
           class="form-control"
           ng-model="$ctrl.application.state">
       </div>
       <br>
       <div>
+        <label for="notes">Notes</label>
+        <textarea id="notes" class="form-control" ng-model="$ctrl.application.notes"></textarea>
+      </div>
+      <br>
+      <div>
         <label for="state">Contact First Name</label>
-        <input id="state" class="form-control" ng-model="$ctrl.application.contact.firstName">
+        <input id="state" class="form-control" ng-model="$ctrl.application.firstName">
       </div>
       <br>
       <div>
         <label for="state">Contact Last Name</label>
-        <input id="state" class="form-control" ng-model="$ctrl.application.contact.lastName">
+        <input id="state" class="form-control" ng-model="$ctrl.application.lastName">
       </div>
       <br>
       <div ng-class="{

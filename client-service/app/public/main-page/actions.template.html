@@ -7,7 +7,6 @@
           <li class="list-group-item text-left panel-body" ng-class="mouseHover" ng-mouseover="mouseHover='active-hover'"
     ng-mouseleave="mouseHover=''" ng-if="action.active && !action.complete">
               {{action.message}}
-              {{action.id}}
             <a class="pull-right glyphicon glyphicon-remove clickable_space" ng-click="$ctrl.updateAction(action,'active',action.id)" href="#"></a>
             <a class="pull-right glyphicon glyphicon-ok clickable_space" ng-click="$ctrl.updateAction(action,'complete',action.id)" href="#"></a>
           </li>
