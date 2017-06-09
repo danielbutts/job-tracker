@@ -2,8 +2,8 @@
 
   angular.module('app').service('actionsService', actionsService)
 
-  actionsService.$inject = ['$http']
-  function actionsService($http){
+  actionsService.$inject = ['$http', 'APPLICATION_SERVICE_URL']
+  function actionsService($http,APPLICATION_SERVICE_URL){
     const vm = this
 
     // vm.login = function(user){
@@ -17,7 +17,7 @@
     // }
 
     vm.updateAction = function(keyUpdating,id) {
-      const actionsUrl = 'https://job-tracker-apps-service.herokuapp.com/actions/' + id
+      const actionsUrl = `${APPLICATION_SERVICE_URL}/actions/` + id
       let bool
       if (keyUpdating === 'complete') {
         bool = true
@@ -30,7 +30,7 @@
     }
 
     vm.getActions = function() {
-      const actionsUrl = 'https://job-tracker-apps-service.herokuapp.com/actions'
+      const actionsUrl = `${APPLICATION_SERVICE_URL}/actions`
       return $http.get(actionsUrl)
     }
 

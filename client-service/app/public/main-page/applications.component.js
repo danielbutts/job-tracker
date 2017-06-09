@@ -12,7 +12,7 @@
       vm.applications = []
 
 
-//This is where
+
     vm.$onInit = function () {
       const userId = $cookies.get('id')
       applicationService.getAllApplicationsForUser(userId).then( response => {
@@ -21,13 +21,14 @@
             if (job.data === "") {
               console.log("broken job hit");
             } else {
+              job.data.applicationId = application.id
               vm.applications.push(job.data)
-              console.log(vm.applications);
+              console.log('job data',job.data);
              }
           })
 
         })
-        console.log('this is the array = ', vm.applications);
+
       })
     }
 

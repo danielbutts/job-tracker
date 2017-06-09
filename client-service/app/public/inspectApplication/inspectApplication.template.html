@@ -1,0 +1,32 @@
+<div class="container">
+
+
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">Applications<a class="pull-right glyphicon glyphicon clickable_space" ui-sref="application"></a></h3>
+    </div>
+    <ul class="list-group" ng-repeat="application in $ctrl.applications">
+      <!-- Need to fix this!!! for tomorrow -->
+      <li ui-sref="inspectApplication({applicationId: application.title})"class="list-group-item text-left panel-body" ng-class="mouseHover" ng-mouseover="mouseHover='active-hover'"
+ng-mouseleave="mouseHover=''" >
+          {{application.title}}
+        <a class="pull-right glyphicon glyphicon-remove clickable_space" ng-click="$ctrl.updateAction(action,'active',action.id)" href="#"></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">Show</h3>
+    </div>
+    <div class="panel-body">
+      {{$ctrl.appTitle}}
+    </div>
+
+  </div>
+
+
+
+
+
+</div>
