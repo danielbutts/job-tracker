@@ -1,9 +1,9 @@
-<div class="container col-md-12">
+<div class="container col-md-12 analytics-panel-container">
   <div class="panel panel-warning">
     <div class="panel-heading">
       <h3 class="panel-title">Analytics</h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-body analytics-panel-modify">
 
       <div>
         <h1 id="chart-title"><strong>{{$ctrl.chartType}}</strong></h1>
@@ -15,8 +15,8 @@
 
     </div>
     <div>
-      <button class="btn btn-primary" ng-click="$ctrl.renderApplicationChart()">Applications Chart</button>
-      <button class="btn btn-primary" ng-click="$ctrl.renderActionChart()">Actions Chart</button>
+      <button class="btn btn-primary analytics-button-modify" ng-click="$ctrl.renderApplicationChart()">Applications Chart</button>
+      <button class="btn btn-primary analytics-button-modify" ng-click="$ctrl.renderActionChart()">Actions Chart</button>
     </div>
   </div>
 </div>

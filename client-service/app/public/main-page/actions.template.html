@@ -1,10 +1,10 @@
-<div class="container col-md-6">
-  <div class="panel panel-primary">
+<div class="container">
+  <div class="panel panel-primary actions-panel-container">
     <div class="panel-heading">
       <h2 class="panel-title">Actions</h2>
     </div>
         <ul class="list-group" ng-repeat="action in $ctrl.actions">
-          <li class="list-group-item text-left panel-body" ng-class="mouseHover" ng-mouseover="mouseHover='active-hover'"
+          <li class="list-group-item text-left panel-body actions-panel-modify" ng-class="mouseHover" ng-mouseover="mouseHover='active-hover'"
     ng-mouseleave="mouseHover=''" ng-if="action.active && !action.complete">
               {{action.message}}
             <a class="pull-right glyphicon glyphicon-remove clickable_space" ng-click="$ctrl.updateAction(action,'active',action.id)" href="#"></a>
@@ -14,4 +14,3 @@
         <div ng-show="$ctrl.actions.length==0" class="text-left panel-body">You have no existing actions in your queue.</div>
   </div>
   </div>
-</div>
