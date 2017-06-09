@@ -16,6 +16,7 @@
       .state({name: 'homePage', url: '/', component: 'dashboard'})
       .state({name: 'loginPage', url: '/login', component: 'login'})
       .state({name: 'application', url: '/application', component: 'application'})
+      .state({name: 'companies', url: '/companies', component: 'companies'})
       .state({name: 'inspectApplication', url: '/inspect/:appTitle/:appId/:jobId', component: 'inspectApplication'})
   }
 
