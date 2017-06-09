@@ -5,3 +5,9 @@
 form.ng-invalid-required {
     box-shadow: none;
 }
+
+.title {
+  font-size: 17px;
+  color: darkblue;
+  font-weight: bold;
+}

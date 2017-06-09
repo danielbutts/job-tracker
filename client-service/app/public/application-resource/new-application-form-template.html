@@ -1,123 +1,136 @@
 <div class="row">
   <div class="col-xs-offset-2 col-md-8">
 
-    <h3>Add a new job opportunity</h3>
+    <div class="text-center title">Add a new job opportunity</div>
 
     <br>
     <form name="$ctrl.jobForm" novalidate ng-submit="$ctrl.create()">
-      <div ng-class="{
-              'has-error': $ctrl.jobForm.companyName.$invalid &&
-                $ctrl.jobForm.companyName.$touched,
-              'has-success': $ctrl.jobForm.companyName.$valid,
-            }">
-        <label for="companyName">Company</label>
-        <input
-          name="companyName"
-          id="companyName"
-          required
-      		minlength="3"
-          class="form-control"
-          ng-model="$ctrl.application.companyName">
+    <div class="row">
+      <div class="col-xs-6">
+        <div ng-class="{
+                'has-error': $ctrl.jobForm.companyName.$invalid &&
+                  $ctrl.jobForm.companyName.$touched,
+                'has-success': $ctrl.jobForm.companyName.$valid,
+              }">
+          <label for="companyName">Company</label>
+          <input
+            name="companyName"
+            id="companyName"
+            required
+        		minlength="3"
+            class="form-control"
+            ng-model="$ctrl.application.companyName">
+        </div>
+        <br>
+        <div ng-class="{
+                'has-error': $ctrl.jobForm.city.$invalid &&
+                  $ctrl.jobForm.city.$touched,
+                'has-success': $ctrl.jobForm.city.$valid,
+              }">
+          <label for="city">City</label>
+          <input
+            name="city"
+            id="city"
+            required
+        		minlength="3"
+            class="form-control"
+            ng-model="$ctrl.application.city">
+        </div>
+        <br>
+        <div ng-class="{
+                'has-error': $ctrl.jobForm.url.$invalid &&
+                  $ctrl.jobForm.url.$touched,
+                'has-success': $ctrl.jobForm.url.$valid,
+              }">
+          <label for="url">URL</label>
+          <input
+            type="url"
+            name="url"
+            id="url"
+            class="form-control"
+            ng-model="$ctrl.application.url">
+        </div>
+        <br>
+        <div>
+          <label for="description">Description</label>
+          <textarea rows="5" id="description" class="form-control" ng-model="$ctrl.application.description"></textarea>
+        </div>
+        <br>
+        <div ng-class="{
+                'has-error': $ctrl.jobForm.stage.$invalid &&
+                  $ctrl.jobForm.stage.$touched,
+                'has-success': $ctrl.jobForm.stage.$valid,
+              }">
+          <label for="stage">Stage</label>
+          <select required name="stage" id="stage" ng-model="$ctrl.application.stage">
+            <option ng-repeat="type in $ctrl.stageTypes" vlaue="{{type}}">{{type}}</option>
+          </select>
+        </div>
+        <br>
+
       </div>
-      <br>
-      <div ng-class="{
-              'has-error': $ctrl.jobForm.title.$invalid &&
-                $ctrl.jobForm.title.$touched,
-              'has-success': $ctrl.jobForm.title.$valid,
-            }">
-        <label for="title">Title</label>
-        <input
-          name="title"
-          id="title"
-          required
-      		minlength="3"
-          class="form-control"
-          ng-model="$ctrl.application.title">
+      <div class="col-xs-6">
+
+        <div ng-class="{
+                'has-error': $ctrl.jobForm.title.$invalid &&
+                  $ctrl.jobForm.title.$touched,
+                'has-success': $ctrl.jobForm.title.$valid,
+              }">
+          <label for="title">Title</label>
+          <input
+            name="title"
+            id="title"
+            required
+        		minlength="3"
+            class="form-control"
+            ng-model="$ctrl.application.title">
+        </div>
+        <br>
+        <div ng-class="{
+                'has-error': $ctrl.jobForm.state.$invalid &&
+                  $ctrl.jobForm.state.$touched,
+                'has-success': $ctrl.jobForm.state.$valid,
+              }">
+          <label for="state">State</label>
+          <input
+            name="state"
+            id="state"
+            required
+            minlength="2"
+            class="form-control"
+            ng-model="$ctrl.application.state">
+        </div>
+        <br>
+
+        <div>
+          <label for="notes">Notes</label>
+          <textarea rows="4" id="notes" class="form-control" ng-model="$ctrl.application.notes"></textarea>
+        </div>
+        <br>
+        <div>
+          <label for="state">Contact First Name</label>
+          <input id="state" class="form-control" ng-model="$ctrl.application.firstName">
+        </div>
+        <br>
+        <div>
+          <label for="state">Contact Last Name</label>
+          <input id="state" class="form-control" ng-model="$ctrl.application.lastName">
+        </div>
+        <br>
       </div>
-      <br>
-      <div>
-        <label for="description">Description</label>
-        <input type="textarea" id="description" class="form-control" ng-model="$ctrl.application.description">
+
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <div class="form-group">
+            <button
+              type="submit"
+              ng-disabled="$ctrl.jobForm.$invalid"
+              class="btn btn-primary">
+              Add Job
+            </button>
+          </div>
+        </div>
       </div>
-      <br>
-      <div ng-class="{
-              'has-error': $ctrl.jobForm.url.$invalid &&
-                $ctrl.jobForm.url.$touched,
-              'has-success': $ctrl.jobForm.url.$valid,
-            }">
-        <label for="url">URL</label>
-        <input
-          type="url"
-          name="url"
-          id="url"
-          class="form-control"
-          ng-model="$ctrl.application.url">
-      </div>
-      <br>
-      <div ng-class="{
-              'has-error': $ctrl.jobForm.city.$invalid &&
-                $ctrl.jobForm.city.$touched,
-              'has-success': $ctrl.jobForm.city.$valid,
-            }">
-        <label for="city">City</label>
-        <input
-          name="city"
-          id="city"
-          required
-      		minlength="3"
-          class="form-control"
-          ng-model="$ctrl.application.city">
-      </div>
-      <br>
-      <div ng-class="{
-              'has-error': $ctrl.jobForm.state.$invalid &&
-                $ctrl.jobForm.state.$touched,
-              'has-success': $ctrl.jobForm.state.$valid,
-            }">
-        <label for="state">State</label>
-        <input
-          name="state"
-          id="state"
-          required
-          minlength="2"
-          class="form-control"
-          ng-model="$ctrl.application.state">
-      </div>
-      <br>
-      <div>
-        <label for="notes">Notes</label>
-        <textarea id="notes" class="form-control" ng-model="$ctrl.application.notes"></textarea>
-      </div>
-      <br>
-      <div>
-        <label for="state">Contact First Name</label>
-        <input id="state" class="form-control" ng-model="$ctrl.application.firstName">
-      </div>
-      <br>
-      <div>
-        <label for="state">Contact Last Name</label>
-        <input id="state" class="form-control" ng-model="$ctrl.application.lastName">
-      </div>
-      <br>
-      <div ng-class="{
-              'has-error': $ctrl.jobForm.stage.$invalid &&
-                $ctrl.jobForm.stage.$touched,
-              'has-success': $ctrl.jobForm.stage.$valid,
-            }">
-        <label for="stage">Stage</label>
-        <select required name="stage" id="stage" ng-model="$ctrl.application.stage">
-          <option ng-repeat="type in $ctrl.stageTypes" vlaue="{{type}}">{{type}}</option>
-        </select>
-      </div>
-      <br>
-      <div class="form-group">
-        <button
-          type="submit"
-          ng-disabled="$ctrl.jobForm.$invalid"
-          class="btn btn-primary">
-          Add Job
-        </button>
-      </div>
-    </form>
+    </form>s
   </div>
 </div>
