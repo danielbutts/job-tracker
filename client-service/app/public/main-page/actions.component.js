@@ -13,7 +13,6 @@
     vm.$onInit = function () {
        loadActions().then( response => {
          vm.actions = response
-
        })
 
     }

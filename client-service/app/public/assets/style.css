@@ -29,8 +29,7 @@ html {
 /*ACTION COMPONENT*/
 .active-hover {
   transition: all .2s ease-in-out;
-  transform: scale(1.03);
-  border: 1px solid grey
+  background-color: #f2f7ff;
 }
 
 
