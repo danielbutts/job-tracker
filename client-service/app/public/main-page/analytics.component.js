@@ -5,11 +5,17 @@
       controller: analyticsController,
     })
 
-  analyticsController.$inject = ['analayticsService', '$scope']
-  function analyticsController(analayticsService, $scope){
+  analyticsController.$inject = ['analayticsService', '$scope', '$window']
+  function analyticsController(analayticsService, $scope, $window){
     const vm = this
 
     vm.$onInit = function(){
+      vm.chartHeight = `${Math.floor($window.innerHeight * .1)}px`
+      vm.chartWidth = `${Math.floor($window.innerWidth * .2)}px`
+
+      console.log($window.innerHeight * .1,  $window.innerWidth * .2)
+      console.log(vm.chartHeight, vm.chartWidth)
+
       vm.chartType = 'applications'
       renderChart()
     }
@@ -39,7 +45,7 @@
           vm.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
           vm.data = [genAverage(response.averageAppsAllUsers, 7), [4, 3, 5, 6, 2, 5, 8]]
 
-          vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }]
+          vm.datasetOverride = [{ yAxisID: 'y-axis-1' }]//, { yAxisID: 'y-axis-2' }]
           vm.options = {
             scales: {
               yAxes: [
@@ -48,20 +54,12 @@
                   type: 'linear',
                   display: true,
                   position: 'left',
+                  ticks: {
+                    beginAtZero: true
+                  },
                   scaleLabel: {
                     display: true,
-                    labelString: 'Average (across all users)',
-                    fontColor: "#546372"
-                  }
-                },
-                {
-                  id: 'y-axis-2',
-                  type: 'linear',
-                  display: true,
-                  position: 'right',
-                  scaleLabel: {
-                    display: true,
-                    labelString: 'Your Applications',
+                    labelString: 'Applications',
                     fontColor: "#546372"
                   }
                 }
@@ -78,25 +76,21 @@
             }
             return averageArray
           }
-
-          // vm.data = [
-          //   genAverage(response.averageAppsAllUsers, userApps.length),
-          //   [userApps.length]
-          // ]
           $scope.$digest()
         })
         .catch((err) => console.error(err))
     }
 
+
     vm.renderActionChart = function(){
       analayticsService.getActionData()
       .then((response) => {
 
-        vm.series = ['Average','Single']
+        vm.series = ['Average','Yours']
         vm.labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        vm.data = [[3,3,3,3,3,3,3], [8, 6, 4, 7, 4, 6, 3]]
+        vm.data = [[4,4,4,4,4,4,4], [8, 2, 4, 7, 4, 6, 3]]
 
-        vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }]
+        vm.datasetOverride = [{ yAxisID: 'y-axis-1' }]
         vm.options = {
           scales: {
             yAxes: [
@@ -105,20 +99,12 @@
                 type: 'linear',
                 display: true,
                 position: 'left',
+                ticks: {
+                  beginAtZero: true
+                },
                 scaleLabel: {
                   display: true,
-                  labelString: 'Average (across all users)',
-                  fontColor: "#546372"
-                }
-              },
-              {
-                id: 'y-axis-2',
-                type: 'linear',
-                display: true,
-                position: 'right',
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Your Actions',
+                  labelString: 'Actions taken',
                   fontColor: "#546372"
                 }
               }

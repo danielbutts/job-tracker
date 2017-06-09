@@ -1,4 +1,4 @@
-<div class="container col-md-12" >
+<div class="container col-md-12">
   <div class="panel panel-warning">
     <div class="panel-heading">
       <h3 class="panel-title">Analytics</h3>
@@ -8,22 +8,17 @@
       <!-- Applications over time chart -->
         <!-- chart-series="$ctrl.series" -->
         <!-- chart-click="onClick" -->
-      <div>
+      <div style="height: $ctrl.chartHeight; width: $ctrl.chartWidth">
         <canvas id="line" class="chart chart-line" chart-data="$ctrl.data"
         chart-labels="$ctrl.labels" chart-series="$ctrl.series" chart-options="$ctrl.options"
-        chart-dataset-override="$ctrl.datasetOverride">
+        chart-dataset-override="$ctrl.datasetOverride" height="$ctrl.chartHeight" width="$ctrl.chartWidth">
         </canvas>
       </div>
-
+      {{$ctrl.chartHeight}} {{$ctrl.chartWidth}}
     </div>
-    <!-- call renderActionChart() or renderApplicationChart() -->
     <div>
-      <!-- <button class="btn btn-primary" ng-click="$ctrl.changeChartType('applications')">Applications Chart</button> -->
-      <!-- <button class="btn btn-primary" ng-click="$ctrl.changeChartType('actions')">Actions Chart</button> -->
-
       <button class="btn btn-primary" ng-click="$ctrl.renderApplicationChart()">Applications Chart</button>
       <button class="btn btn-primary" ng-click="$ctrl.renderActionChart()">Actions Chart</button>
-
     </div>
   </div>
 </div>
