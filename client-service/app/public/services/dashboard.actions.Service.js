@@ -6,16 +6,6 @@
   function actionsService($http,APPLICATION_SERVICE_URL){
     const vm = this
 
-    // vm.login = function(user){
-    //   const userLoginUrl = `http://localhost:5000/api/auth/login`
-    //   return $http.post(userLoginUrl, user)
-    // }
-    //
-    // vm.logout = function(){
-    //   const userLogout = `http://localhost:5000/api/auth/logout`
-    //   return $http.delete(userLogout)
-    // }
-
     vm.updateAction = function(keyUpdating,id) {
       const actionsUrl = `${APPLICATION_SERVICE_URL}/actions/` + id
       let bool

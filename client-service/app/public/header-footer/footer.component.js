@@ -2,12 +2,11 @@
   angular.module('app')
     .component('footerbar', {
       templateUrl: '/../header-footer/footer.template.html',
-      controller: mainController,
+      controller: footerController,
     })
 
-  function mainController(){
+  function footerController(){
     const vm = this
-
   }
 
 })()
