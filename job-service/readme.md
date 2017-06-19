@@ -46,6 +46,6 @@ curl -i -X POST -H 'Content-Type: application/json' -d '{ "name": "Microsoft", "
 curl -i -X PATCH -H 'Content-Type: application/json' -d '{ "name": "Microsoft", "city": "Seattle", "state": "WA", "note": "They make software", "jobs": [] }' http://localhost:8080/companies
 
 ### *Future Work*
-- The service itself has no security so requests can be made directly to the services API rather than through the Company Service with authentication is implemented.
+- The service itself has no security so requests can be made directly to the services API rather than through the Company Service where authentication is implemented.
 - Additional server-side validation is required to ensure required fields are presenting on all API requests.
 - Implement Contact entity to track different points of contact within a Company.

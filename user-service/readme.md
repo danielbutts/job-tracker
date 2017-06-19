@@ -41,5 +41,5 @@ curl -i -X DELETE -H 'Content-Type: application/json' http://localhost:8080/user
 curl -i -X POST -H 'Content-Type: application/json'  -d '{ "username": "testuser", "password": "password" }' http://localhost:8080/users/login
 
 ### *Future Work*
-- The service itself has no security so requests can be made directly to the services API rather than through the Client Service with authentication is implemented.
+- The service itself has no security so requests can be made directly to the services API rather than through the Client Service where authentication is implemented.
 - Additional server-side validation is required to ensure required fields are presenting on all API requests.

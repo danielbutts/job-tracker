@@ -66,6 +66,6 @@ curl -i http://localhost:8080/stages/types
 curl -i http://localhost:8080/stages/1
 
 ### *Future Work*
-- The service itself has no security so requests can be made directly to the services API rather than through the Company Service with authentication is implemented.
+- The service itself has no security so requests can be made directly to the services API rather than through the Company Service where authentication is implemented.
 - Additional server-side validation is required to ensure required fields are presenting on all API requests.
 - Implement Contact entity to track different points of contact within a Company.
