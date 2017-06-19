@@ -1,23 +1,19 @@
 <div class="container">
-
-  <div class="panel panel-success">
-    <div class="panel-heading">
-      <h3 class="panel-title">{{$ctrl.appTitle}}</h3>
-    </div>
-    <div class="panel-body">
-
-      <div class="pull-left col-md-12">
-      {{$ctrl.job.description}}
+  <div class= "col-xs-offset-2 col-md-8">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{$ctrl.appTitle}}</h3>
       </div>
-      <div class="col-md-12">
-      <a href="{{$ctrl.job.url}}"></a>
+      <div class="panel-body">
+
+        <div class="pull-left col-md-12">
+        {{$ctrl.job.description}}
+        </div>
+        <div class="col-md-12">
+        <a href="{{$ctrl.job.url}}"></a>
+        </div>
       </div>
     </div>
+    <a class="btn-success btn pull-left" ui-sref="homePage"><span class="glyphicon glyphicon-chevron-left"></span>Return to dashboard</a>
   </div>
-  <a class="btn-success btn pull-left" ui-sref="homePage"><span class="glyphicon glyphicon-chevron-left"></span>Return to dashboard</a>
-
-
-
-
-
 </div>
