@@ -22,12 +22,6 @@ public class Company {
     private Set<Job> jobs;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="company_contact",
-            joinColumns = @JoinColumn(name = "company_id"),
-            inverseJoinColumns = @JoinColumn(name = "contact_id"))
-    private Set<Contact> contacts;
-
     private String name;
     private String city;
     private String state;
@@ -81,15 +75,6 @@ public class Company {
 
     public void setJobs(Set<Job> jobs) {
         this.jobs = jobs;
-    }
-
-
-    public Set<Contact> getContacts() {
-        return contacts;
-    }
-
-    public void setContacts(Set<Contact> contacts) {
-        this.contacts = contacts;
     }
 
 

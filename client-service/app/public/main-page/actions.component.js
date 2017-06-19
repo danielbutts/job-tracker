@@ -39,6 +39,7 @@
 
     function loadActions() {
       return actionsService.getActions().then( response => {
+        console.log(response.data);
           return response.data.filter( action => {
             if(action.active && !action.complete) {
               return action

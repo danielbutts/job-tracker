@@ -23,6 +23,8 @@ public class Job {
 
     private String title;
     private String url;
+
+    @Column(length=10485760)
     private String description;
 
 

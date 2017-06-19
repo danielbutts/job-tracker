@@ -48,9 +48,6 @@ public class CompanyController {
         if (company.getJobs() != null) {
             existingCompany.setJobs(company.getJobs());
         }
-        if (company.getContacts() != null) {
-            existingCompany.setContacts(company.getContacts());
-        }
 
         return this.companyRepository.save(existingCompany);
     }
