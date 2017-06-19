@@ -2,6 +2,8 @@
 #### Created by Daniel Butts (https://github.com/danielbutts), Ian Harvey (https://github.com/ith-harvey), and Michael Hathaway (https://github.com/MikeHathaway)
 * * *
 
+![screenshot](https://github.com/danielbutts/job-tracker/blob/master/screenshot.png)
+
 ![screenshot](https://github.com/danielbutts/job-tracker/blob/master/client-service/screenshot.png)
 
 ### *Goal*
